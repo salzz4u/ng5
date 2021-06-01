@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CurrencyPipe, DatePipe, DecimalPipe } from '@angular/common';
+import {of} from 'rxjs/observable/of';
+import {Observable} from 'rxjs/Observable';
 
 export interface OfferDefinition {
   id: string;
@@ -80,8 +81,8 @@ export class OfferService {
         let cmsData: CmsData;
         const offerContentHtml = this.convertTextToDom(html);
         const template = offerContentHtml.querySelector(offerWrapper[id]);
-        const scripts: NodeList = offerContentHtml.querySelectorAll('script[data-name="bdb"]');
-        const styles: NodeList = offerContentHtml.querySelectorAll('style[data-name="bdb"]');
+        const scripts = Array.from(offerContentHtml.querySelectorAll('script[data-name="bdb"]'));
+        const styles = Array.from(offerContentHtml.querySelectorAll('style[data-name="bdb"]'));
         if (scripts.length > 0) {
           scripts.forEach((script) => template.prepend(script));
         }

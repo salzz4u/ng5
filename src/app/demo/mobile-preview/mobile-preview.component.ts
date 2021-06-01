@@ -84,7 +84,7 @@ export class MobilePreviewComponent implements AfterViewInit {
       },
     };
 
-    const emulators = document.querySelectorAll('.emulator__item');
+    const emulators = Array.from(document.querySelectorAll('.emulator__item'));
 
     emulators.forEach((em: HTMLElement) => {
       const emulatorDevice = em.getAttribute('device');
