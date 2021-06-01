@@ -1,0 +1,116 @@
+<div class="site__wrapper">
+  <div class="site__container">
+    <section class="site__banner"><img src="/assets/mocks/mp3/banner-en.jpg" alt="" /></section>
+    <section role="main" class="site__main">
+      <div class="main__wrapper">
+        <div class="columns two has-panel">
+          <div class="">
+            <h2 style="color: #0079c1">Transfer balances <b>now and save!</b></h2>
+            <p>
+              Congratulations on your recent credit limit increase. Now that it’s in place, take advantage of that
+              extra credit to pay down higher-interest credit cards from other institutions with a balance
+              transfer.<sup>†</sup>
+            </p>
+            <p>
+              Transfer balances to your BMO<sup>®</sup>&nbsp;credit card ending in
+              <span id="RESERVED_6">[[card-ending-in_NUM_INT]]</span> by <span id="RELEVANT_DATE:1"></span>and pay only
+              <span id="RATE:1">[[interest-rate_NUM_INT]]</span>% interest for up to
+              <span id="RESERVED_5:1">[[up-to-months_NUM_INT]] </span>months.* By consolidating your higher cost debt, you can pay
+              it off faster while saving money. A fee of <span id="RESERVED_7:1">[[fee-percent_NUM_INT]]</span>% of the balance amount you
+              are transferring applies.*
+            </p>
+            <p>
+                  <span
+                  ><strong style="font-weight: 600"
+                  >Offer ends <span id="RELEVANT_DATE:2">[[offer-ends_DATE_LONG]]</span>,* so act now!</strong
+                  ></span
+                  >
+            </p>
+            <p>
+              Click <b style="font-weight: 700"><i style="font-style: italic">“Transfer Now”&nbsp;</i></b
+            >to start saving on interest!
+            </p>
+            <a
+              style="display: block; font-size: 0.8rem; margin-bottom: 0.5rem"
+              href="javascript:popup('balanceTransfer_en_terms.html');"
+            >Terms &amp; Conditions apply.
+            </a>
+            <div style="width: 600px">
+              <div id="check_to_agree">
+                <input
+                  id="agree_checkbox"
+                  name="agree_checkbox"
+                  value="I agree"
+                  type="checkbox"
+                  checked=""
+                  style="visibility: hidden"
+                />
+                <div style="float: left">
+                  <div
+                    id="dmg-lme-offer-checkboxempty"
+                    class="dmg-lme-offer-checkboxempty"
+                    onclick="var el=document.getElementById('dmg-lme-offer-checkboxempty'); el.style.display='none'; el=document.getElementById('dmg-lme-offer-checkboxchecked'); el.style.display='block'; toggleTransferState('true');"
+                    style="display: block"
+                  ></div>
+                  <div
+                    id="dmg-lme-offer-checkboxchecked"
+                    class="dmg-lme-offer-checkboxchecked"
+                    onclick="var el=document.getElementById('dmg-lme-offer-checkboxempty'); el.style.display='block'; el=document.getElementById('dmg-lme-offer-checkboxchecked'); el.style.display='none'; toggleTransferState('false');"
+                    style="display: none"
+                  ></div>
+                </div>
+                <span for="agree_checkbox" class="footnotes" style="font-size: 0.8em; margin-left: 10px"
+                >By checking the box, you agree to the Terms and Conditions.</span
+                >
+              </div>
+              <p class="buttons">
+                <a
+                  href="#"
+                  class="Interstitial_RemindMeLater button cta sml"
+                  style="float: left; margin-right: 10px"
+                >Ask me later</a
+                >
+              </p>
+              <div id="continue_button">
+                <div>
+                  <a
+                    href="javascript:void(0);"
+                    id="transferBtn"
+                    class="Interstitial_checkboxBalanceTransfer button cta sml primary btnDisable accept"
+                  >Transfer now</a
+                  >
+                </div>
+              </div>
+              <a href="#" style="margin-top: 0.5rem; display: block" class="Interstitial_NoThanks reject"
+              >No, thank you</a
+              >
+              <p></p>
+            </div>
+          </div>
+          <div class="">
+            <div
+              class="panel"
+              style="background-color: #e5f1f9; max-width: 150px; border-radius: 10px; color: #0079c1"
+            >
+              <p>
+                <strong
+                ><span class="big"><span id="RATE:2">[[interest-rate_NUM_DEC_MIN:0,MAX:3]]</span>%</span><br />for up to<br /><span class="big"
+                ><span id="RESERVED_5:2"></span></span
+                >months</strong
+                >
+              </p>
+              <p>Transfer your credit card balances<strong>&nbsp;TODAY!</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section__footnotes">
+        <div class="footnotes__wrapper"><p class="footnotes"></p></div>
+      </div>
+    </section>
+  </div>
+  <div style="display: none">
+    <span id="RATE:4"></span><span id="RELEVANT_DATE:4"></span><span id="RESERVED_7:2"></span
+  ><span id="RESERVED_4"></span>
+  </div>
+</div>

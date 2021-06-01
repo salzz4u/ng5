@@ -4,12 +4,14 @@ import { BdbJsonComponent } from './demo/bdb-json/bdb-json.component';
 import { BdbHtmlComponent } from './demo/bdb-html/bdb-html.component';
 import { AdminComponent } from './demo/admin/admin.component';
 import { MobilePreviewComponent } from './demo/mobile-preview/mobile-preview.component';
+import {StylerComponent} from './demo/styler/styler.component';
 
 export const routes: Routes = [
   { path: 'bdb-json', component: BdbJsonComponent },
   { path: 'bdb-html', component: BdbHtmlComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'mobile-preview', component: MobilePreviewComponent },
+  { path: 'styler', component: StylerComponent },
   { path: '', redirectTo: '/admin', pathMatch: 'full' }, // redirect to `first-component`
   { path: '**', redirectTo: '/admin' }, // Wild
 ];

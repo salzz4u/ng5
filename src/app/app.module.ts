@@ -10,10 +10,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DisplayComponent } from './display/display.component';
 import { BdbJsonComponent } from './demo/bdb-json/bdb-json.component';
 import { BdbHtmlComponent } from './demo/bdb-html/bdb-html.component';
+import {MobilePreviewComponent} from './demo/mobile-preview/mobile-preview.component';
 import { AdminComponent } from './demo/admin/admin.component';
 import { HeaderComponent } from './header/header.component';
 import { CurrencyPipe, DatePipe, DecimalPipe } from '@angular/common';
-import { MobilePreviewComponent } from './demo/mobile-preview/mobile-preview.component';
+import {StylerComponent} from './demo/styler/styler.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MobilePreviewComponent } from './demo/mobile-preview/mobile-preview.com
     AdminComponent,
     HeaderComponent,
     MobilePreviewComponent,
+    StylerComponent,
   ],
   imports: [BrowserModule, HttpClientModule, ReactiveFormsModule, AppRoutingModule, OfferModule],
   providers: [DatePipe, CurrencyPipe, DecimalPipe],
