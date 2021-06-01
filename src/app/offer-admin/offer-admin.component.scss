@@ -1,0 +1,24 @@
+.cols {
+  display: flex;
+
+  > * {
+    margin: 1rem;
+    flex-basis: 50%;
+    flex-grow: 0;
+  }
+  > .full-width {
+    flex-basis: 100%;
+  }
+}
+
+.formCtrlRow {
+  display: flex;
+  margin: 5px 10px;
+  padding: 5px;
+  background: #f3f3f3;
+
+  > * {
+    flex-basis: 50%;
+    flex-grow: 0;
+  }
+}

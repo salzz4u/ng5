@@ -1,0 +1,7 @@
+{
+  "id": "OFFER-4000",
+  "bonus": 500,
+  "period": "month",
+  "deposit": 150,
+  "extractTag": ".main__wrapper"
+}

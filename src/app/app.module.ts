@@ -1,42 +1,33 @@
 ﻿import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { MatButtonModule, MatCardModule, MatInputModule, MatSnackBarModule, MatToolbarModule } from '@angular/material';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { EqualValidatorDirective } from './shared/equal.validator.directive';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { NavComponent } from './nav/nav.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { LoginComponent } from './login/login.component';
-
-import { AuthService } from './auth.service';
-import { AuthGuard } from './auth.guard';
-
-const myRoots: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' , canActivate: [AuthGuard]},
-  { path: 'register', component: RegistrationComponent },
-  { path: 'login', component: LoginComponent},
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]}
-];
+import { HttpClientModule } from '@angular/common/http';
+import { OfferModule } from './offer/offer.module';
+import { OfferAdminComponent } from './offer-admin/offer-admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DisplayComponent } from './display/display.component';
+import { BdbJsonComponent } from './demo/bdb-json/bdb-json.component';
+import { BdbHtmlComponent } from './demo/bdb-html/bdb-html.component';
+import { AdminComponent } from './demo/admin/admin.component';
+import { HeaderComponent } from './header/header.component';
+import { CurrencyPipe, DatePipe, DecimalPipe } from '@angular/common';
+import { MobilePreviewComponent } from './demo/mobile-preview/mobile-preview.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    NavComponent,
-    RegistrationComponent,
-    LoginComponent,
-    EqualValidatorDirective
+    OfferAdminComponent,
+    DisplayComponent,
+    BdbJsonComponent,
+    BdbHtmlComponent,
+    AdminComponent,
+    HeaderComponent,
+    MobilePreviewComponent,
   ],
-  imports: [
-    BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
-    MatButtonModule, MatCardModule, MatInputModule, MatSnackBarModule, MatToolbarModule,
-    RouterModule.forRoot(myRoots)
-  ],
-  providers: [AuthService, AuthGuard],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, HttpClientModule, ReactiveFormsModule, AppRoutingModule, OfferModule],
+  providers: [DatePipe, CurrencyPipe, DecimalPipe],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,245 @@
+<html>
+<head>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>BMO Bank of Montreal</title>
+  <link
+    href="https://www.bmo.com/LME/css/mainLME.css"
+    media="screen"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <link
+    href="https://www.bmo.com/LME/css/global_mp.css"
+    media="screen"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <script src="https://www.bmo.com/LME/scripts/olb_scripts.js"></script>
+  <script type="text/javascript">
+    function notifyOLB(obj) {
+      if (inprint != undefined && (inprint == "Y" || inprint == "y")) {
+        return false;
+      }
+      var olbUrl =
+        "https://" +
+        domain +
+        olbPath +
+        "main" +
+        "/OLB/tra/ema&z=" +
+        new Date().getTime();
+      if (magicId != undefined) {
+        olbUrl =
+          olbUrl + "&trackingCode=LogFulfilledService&magicId=" + magicId;
+      }
+      obj.href = olbUrl;
+      return true;
+    }
+
+    function notifyOLB_callback(obj) {
+      if (inprint != undefined && (inprint == "Y" || inprint == "y")) {
+        return false;
+      }
+      var olbUrl =
+        "https://" +
+        domain +
+        "/cgi-bin/netbnx/TrackMarketingStatus?z=" +
+        new Date().getTime();
+
+      if (magicId == undefined || magicId == "") {
+        return true;
+      }
+      olbUrl =
+        olbUrl + "&trackingCode=LogFulfilledRedirect&magicId=" + magicId; // for non-OAB links that redirect
+      document.images["callback"].src = olbUrl;
+      return true;
+    }
+  </script>
+  <!-- ad-hoc styles -->
+  <style type="text/css">
+    body {
+      font-size: 3pt;
+    }
+
+    h1 {
+      line-height: normal;
+    }
+
+    p,
+    ul {
+      line-height: 1.25em;
+    }
+
+    sup {
+      top: 0;
+      line-height: normal;
+    }
+
+    h1 sup {
+      top: 0;
+      font-size: 64%;
+    }
+
+    #fr h1 sup {
+      left: 0.1em;
+    }
+
+    a.cta {
+      text-decoration: none;
+    }
+
+    a.cta sup {
+      top: 0.5em;
+    }
+
+    #wrapper {
+      width: 700px;
+    }
+
+    .bump_right p:last-child {
+      margin-bottom: 0;
+    }
+
+    #title_main {
+      margin: 20px 0;
+      font-size: 20px;
+    }
+
+    p,
+    ul {
+      margin-bottom: 12px;
+    }
+
+    p.new-bullet,
+    li {
+      margin-bottom: 2px;
+    }
+
+    p.smalltext {
+      color: #333;
+    }
+
+    #copy {
+      margin-bottom: 20px;
+      margin-right: 30px;
+      font-size: 14px;
+    }
+  </style>
+
+  <script>
+    function eTransferTrack(tracker) {
+      notifyOLB(tracker);
+      var domain = readCookie("SetDomainToBMO");
+      this.href = "https://" + domain + "/OLB/tra/ema";
+    }
+  </script>
+  <script
+    src="https://www.bmo.com/LME/scripts/lead_cta.js"
+    type="text/javascript"
+  ></script>
+</head>
+
+<body>
+<div id="wrapper">
+  <div id="banner">
+    <img
+      alt="Spring is here – is your money still hibernating?"
+      src="./en.jpeg"
+    />
+  </div>
+  <div id="background">
+    <div id="content">
+      <div class="bump_right">
+        <br/>
+        <br/>
+        <div id="copy" style="margin-bottom: 0">
+          <h1 style="color: #0075be">
+            Let your money spring to life in 2021!</b>
+          </h1>
+          <p>
+            It’s the time of year for new plans, new growth, and new life – and that includes your money.
+          </p>
+          <p><strong style="font-size: 100%;">Do you have cash sitting in your RRSP or TFSA? </strong>Now’s the time to
+            bring it to life by investing it through these investment offers:</p>
+          <div style="display: flex; flex-direction: row;">
+            <div style="display: flex; flex-direction: row;">
+              <div>
+                <img alt="chevron" src="./chevron.jpeg" style="display: inline-flex; position: relative; top: 0.5rem;">
+
+                <div style="display: inline-flex; flex-direction: column;">
+                  <h2 style="color: #0075be; font-size: 0.9rem; margin: 0; width: fit-content">BMO Mutual Funds</h2>
+                  <p style="display: block; "><strong style="font-size: 0.9rem;">Bonus of up to $250*</strong><br>
+                    - Start with as little as $50 per week.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+              <div>
+                <img alt="chevron" src="./chevron.jpeg" style="display: inline-flex; position: relative; top: 0.5rem;">
+
+                <div style="display: inline-flex; flex-direction: column;">
+                  <h2 style="color: #0075be; font-size: 0.9rem; margin: 0; width: fit-content">BMO Blue Chip GIC</h2>
+                  <p style="display: block; font-size: 0.7rem;"><strong style="font-size: 0.9rem;">Potential for up to
+                    15% after 4 years<sup>†</sup></strong><br>
+                    (based on market performance)
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <p style="margin-top: 1rem;">
+            We’ll help bring your money to life. Talk to us today to get started.
+          </p>
+        </div>
+        <div>
+          <a
+            class="OAB_MarketingPages button cta primary sml auth"
+            href="javascript:void(0)"
+            style="
+                  margin: 0.5em 0;
+                  background-color: #ed1c24;
+                  max-width: 360px;
+                  width: 32%;
+                  border-radius: 2rem;
+                  padding-top: 2px;
+                  border: 0;
+                  font-size: 1rem;
+                  color: #fff;
+                "
+            target="_blank"
+          >Book an appointment
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="legal" style="margin-top: 0.9rem;">
+    <p>
+      <a
+        href="https://www.bmo.com/LME/Marketing/March2021/money-parkers/money-parkers-terms-en.html"
+        onclick="window.open('./money-parkers-terms-en.html',
+                               'newwindow',
+                               'width=465,height=447');
+                    return false;"
+        style="text-decoration: none"
+      ><sup>*,† </sup>Terms and Conditions apply</a
+      >
+    </p>
+  </div>
+</div>
+<script type="text/javascript">
+  var _cf = _cf || [];
+  _cf.push(["_setFsp", true]);
+  _cf.push(["_setBm", true]);
+  _cf.push(["_setAu", "/utils/c788329d996ti182039546fda6ccc62b5"]);
+</script>
+<script
+  src="/utils/c788329d996ti182039546fda6ccc62b5"
+  type="text/javascript"
+></script>
+</body>
+</html>

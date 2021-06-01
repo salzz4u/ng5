@@ -1,0 +1,9 @@
+{
+  "id": "BAL_TRANSFER",
+  "card-ending-in": 4567,
+  "interest-rate": 2.23,
+  "up-to-months": 12,
+  "fee-percent": 1.22,
+  "offer-ends": "06/30/2021",
+  "extractTag": ".site__wrapper"
+}

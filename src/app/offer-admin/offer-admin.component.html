@@ -1,0 +1,30 @@
+<label for="offer">Choose an offer:</label>
+<div class="cols" [formGroup]="selectOfferForm">
+  <select formControlName="offer" name="offer" id="offer">
+    <option value="NONE">Select an offer</option>
+    <option value="OFFER-4000">OFFER-4000</option>
+    <option value="CREDIT_LIMIT">CREDIT_LIMIT</option>
+    <option value="BAL_TRANSFER">BAL_TRANSFER</option>
+  </select>
+  <button (click)="previewOn = !previewOn" type="button">{{ previewOn ? 'Show Form' : 'Full width Preview' }}</button>
+</div>
+
+<div class="cols" *ngIf="displayForm">
+  <div *ngIf="!previewOn">
+    <p>Form</p>
+    <div [formGroup]="offerForm">
+      <div *ngFor="let ctrl of offerFormControlMetaArray; let i = index" class="formCtrlRow">
+        <label [for]="'offerForm' + i">{{ ctrl.formControlName }}</label>
+        <input [formControlName]="ctrl.formControlName" [id]="'offerForm' + i" type="text" />
+      </div>
+    </div>
+    <!--<p>{{ offerForm.value | json }}</p>-->
+  </div>
+  <div [ngClass]="{ 'full-width': previewOn }">
+    <app-offer
+      [offerContent]="cmsData?.data"
+      [offerDefinition]="offerAdminDefinition"
+      [updatedFieldName]="updatedFieldName"
+    ></app-offer>
+  </div>
+</div>

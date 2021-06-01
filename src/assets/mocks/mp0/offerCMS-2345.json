@@ -1,0 +1,3 @@
+{
+  "data": "<style></style><div class=\"banner\"><p>This is a special offer for you, [[name_STR]], <span class=\"bold\">Get [[offerAmount]] for switching to E-statements</span>, you will also be helping the environment!.</p>\n  <a href=\"[[url_STR]]\">[[urlText_STR]]</a> <br/><button type=\"button\" class=\"cta-event accept\" >accept</button><button  class=\"cta-event reject\" >reject</button></div>"
+}
