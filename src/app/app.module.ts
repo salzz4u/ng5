@@ -28,6 +28,7 @@ import { MobilePreviewComponent } from './demo/mobile-preview/mobile-preview.com
   ],
   imports: [BrowserModule, HttpClientModule, ReactiveFormsModule, AppRoutingModule, OfferModule],
   providers: [DatePipe, CurrencyPipe, DecimalPipe],
+  entryComponents: [DisplayComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
