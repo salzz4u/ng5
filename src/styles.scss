@@ -1,8 +1,7 @@
 ﻿
-@font-face {
-  font-family: dax-medium;
-  src: url('http://localhost:4200/assets/font/dax-medium.woff') format('woff');
-}
+@import "fonts";
+@import "root";
+//@import "bdb";
 
 .highlight {
   display: inline-block;

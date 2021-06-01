@@ -1,7 +1,27 @@
 <div class="site__wrapper">
+  <style>
+    .site__main,  .site__wrapper,  .site__container, .main__wrapper{
+      display: flex;
+    }
+    .site__container {
+      flex-basis: 600px;
+      margin: auto;
+    }
+
+    .site__main {
+      padding: 0 20px;
+    }
+    .site__banner {
+
+    }
+    .columns {
+      display: flex;
+    }
+
+  </style>
   <div class="site__container">
     <section class="site__banner"><img src="/assets/mocks/mp3/banner-en.jpg" alt="" /></section>
-    <section role="main" class="site__main">
+    <section  class="site__main">
       <div class="main__wrapper">
         <div class="columns two has-panel">
           <div class="">
@@ -90,7 +110,7 @@
           <div class="">
             <div
               class="panel"
-              style="background-color: #e5f1f9; max-width: 150px; border-radius: 10px; color: #0079c1"
+              style="background-color: #e5f1f9; border-radius: 10px; color: #0079c1"
             >
               <p>
                 <strong
@@ -104,13 +124,6 @@
           </div>
         </div>
       </div>
-      <div class="section__footnotes">
-        <div class="footnotes__wrapper"><p class="footnotes"></p></div>
-      </div>
     </section>
-  </div>
-  <div style="display: none">
-    <span id="RATE:4"></span><span id="RELEVANT_DATE:4"></span><span id="RESERVED_7:2"></span
-  ><span id="RESERVED_4"></span>
   </div>
 </div>
