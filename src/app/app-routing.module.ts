@@ -11,7 +11,7 @@ export const routes: Routes = [
   { path: 'bdb-html', component: BdbHtmlComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'mobile-preview', component: MobilePreviewComponent },
-  { path: 'styler', component: StylerComponent },
+  // { path: 'styler', component: StylerComponent },
   { path: '', redirectTo: '/admin', pathMatch: 'full' }, // redirect to `first-component`
   { path: '**', redirectTo: '/admin' }, // Wild
 ];

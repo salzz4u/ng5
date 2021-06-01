@@ -16,8 +16,142 @@
     }
     .columns {
       display: flex;
+      width: 510px;
+    }
+    .columns h2 {
+      margin-top: 0;
+    }
+    .panel p {
+      text-align: center;
+    }
+    .panel p .big {
+      font-size: 1.875rem;
+    }
+    @media (max-width:767px) {
+      .site__container {
+        flex-basis: auto;
+        flex-direction: column;
+      }
+      .site__banner img {
+        width: 100%;
+      }
+      .columns {
+        flex-direction: column-reverse;
+        width: 100%;
+      }
+    }
+  </style>
+  <style>
+    /* Buttons
+========================================================================== */
+
+
+    a.button-offer,
+    span.button-offer {
+      display: inline-block;
+      box-sizing: border-box;
+      height: 40px;
+      padding: 0 17px;
+      border: 2px solid #0075BE;
+      border-radius: 25px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      background-color: transparent;
+      color: #0075BE;
+      font-family: "heebo";
+      font-size: 15px;
+      line-height: 33px;
+      text-align: center;
+      vertical-align: middle;
+      overflow: hidden;
     }
 
+    a.button-offer:hover { border-color:#1a4d78; color:#1a4d78; text-decoration:none; }
+
+    a.button-offer:focus,
+
+    a.button-offer:active { border-color:#1a4d78; color:#1a4d78; text-decoration:none; outline:0; }
+
+    a.button-offer.disabled { border-color:#99c9e6; color:#99c9e6; cursor:default; }
+
+    a.button-offer.primary,
+    span.button-offer.primary { background-color:#0075BE; color:#ffffff; }
+
+    a.button-offer.primary:hover { border-color:#1a4d78; background-color:#1a4d78; color:#ffffff; text-decoration:none; }
+
+    a.button-offer.primary:focus,
+
+    a.button-offer.primary:active { border-color:#1a4d78; background-color:#1a4d78; color:#ffffff; text-decoration:none; outline:0; }
+
+    a.button-offer.primary.disabled { border-color:#99c9e6; background-color:#99c9e6; color:#efefef; }
+
+    a.button-offer.attention,
+    span.button-offer.attention {
+      /* border-color:#ed1b24; */
+      /* background-color:#ed1b24; */
+      border-color: #E2121D;
+      background-color: #E2121D;
+      color:#ffffff;
+    }
+
+    a.button-offer.attention:hover { border-color:#9b262c; background-color:#9b262c; color:#ffffff; text-decoration:none; }
+
+    a.button-offer.attention:focus,
+
+    a.button-offer.attention:active { border-color:#9b262c; background-color:#9b262c; color:#ffffff; text-decoration:none; outline:0; }
+
+    a.button-offer.attention.disabled { border-color:#f8a3a7; background-color:#f8a3a7; color:#efefef; }
+
+    a.button-offer.small,
+    span.button-offer.small { height:34px; line-height:34px; }
+
+    a.button-offer.wrap,
+    span.button-offer.wrap { padding:4px 30px; line-height:19px; }
+
+    button + a.button-offer,
+    button + span.button-offer,
+    a.button-offer + button,
+    a.button-offer + a.button-offer,
+    a.button-offer + span.button-offer,
+    span.button-offer + button,
+    span.button-offer + a.button-offer,
+    span.button-offer + span.button-offer { margin:0 0 0 1%; }
+    @media (max-width:767px) {
+
+      a.button-offer,
+      span.button-offer,
+
+      a.button-offer.small,
+      span.button-offer.small { width:100%; height:50px; line-height:46px; }
+
+      button + a.button-offer,
+      button + span.button-offer,
+      a.button-offer + button,
+      a.button-offer + a.button-offer,
+      a.button-offer + span.button-offer,
+      span.button-offer + button,
+      span.button-offer + a.button-offer,
+      span.button-offer + span.button-offer { margin:15px 0 0; }
+
+      p a.button-offer,
+      p span.button-offer { margin:15px 0 0; }
+    }
+
+    a.button-offer.flush,
+    span.button-offer.flush { width:100%; }
+  </style>
+  <style>
+    /*links*/
+    a.link-offer {
+      color: #0075BE;
+      line-height: 1.3em;
+      text-decoration: none;
+    }
+    a.link-terms {
+      display: block;
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
   </style>
   <div class="site__container">
     <section class="site__banner"><img src="/assets/mocks/mp3/banner-en.jpg" alt="" /></section>
@@ -51,11 +185,12 @@
             >to start saving on interest!
             </p>
             <a
+              class="link-offer link-terms"
               style="display: block; font-size: 0.8rem; margin-bottom: 0.5rem"
               href="javascript:popup('balanceTransfer_en_terms.html');"
             >Terms &amp; Conditions apply.
             </a>
-            <div style="width: 600px">
+            <div>
               <div id="check_to_agree">
                 <input
                   id="agree_checkbox"
@@ -79,14 +214,14 @@
                     style="display: none"
                   ></div>
                 </div>
-                <span for="agree_checkbox" class="footnotes" style="font-size: 0.8em; margin-left: 10px"
+                <span for="agree_checkbox" class="footnotes" style="font-size: 0.8em; margin-left: 8px; float: left"
                 >By checking the box, you agree to the Terms and Conditions.</span
                 >
               </div>
               <p class="buttons">
                 <a
                   href="#"
-                  class="Interstitial_RemindMeLater button cta sml"
+                  class="Interstitial_RemindMeLater button-offer cta sml"
                   style="float: left; margin-right: 10px"
                 >Ask me later</a
                 >
@@ -96,12 +231,12 @@
                   <a
                     href="javascript:void(0);"
                     id="transferBtn"
-                    class="Interstitial_checkboxBalanceTransfer button cta sml primary btnDisable accept"
+                    class="Interstitial_checkboxBalanceTransfer button-offer cta sml primary btnDisable accept"
                   >Transfer now</a
                   >
                 </div>
               </div>
-              <a href="#" style="margin-top: 0.5rem; display: block" class="Interstitial_NoThanks reject"
+              <a href="#" style="margin-top: 0.5rem; display: block" class="Interstitial_NoThanks reject link-offer"
               >No, thank you</a
               >
               <p></p>
@@ -115,7 +250,7 @@
               <p>
                 <strong
                 ><span class="big"><span id="RATE:2">[[interest-rate_NUM_DEC_MIN:0,MAX:3]]</span>%</span><br />for up to<br /><span class="big"
-                ><span id="RESERVED_5:2"></span></span
+                ><span id="RESERVED_5:2">[[up-to-months_NUM_INT]]</span> </span
                 >months</strong
                 >
               </p>
