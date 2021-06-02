@@ -1,10 +1,12 @@
-import { AfterViewInit, Component, ElementRef, Input, OnChanges, ViewChild } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
-import { OfferDefinition, OfferService } from './offer.service';
+import {AfterViewInit, Component, ElementRef, Input, OnChanges, ViewChild, ViewEncapsulation} from '@angular/core';
+import {DomSanitizer} from '@angular/platform-browser';
+import {OfferDefinition, OfferService} from './offer.service';
 
 @Component({
   selector: 'app-offer',
   templateUrl: './offer.component.html',
+  styleUrls: ['./offer.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class OfferComponent implements OnChanges, AfterViewInit {
   @Input() updatedFieldName: string;

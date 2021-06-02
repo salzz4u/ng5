@@ -47,6 +47,7 @@ export class MobilePreviewComponent implements AfterViewInit, OnChanges {
     this.compRef.location.nativeElement.id = 'innerComp';
     (this.compRef.instance as DisplayComponent).offerContent = this.offerContent;
     (this.compRef.instance as DisplayComponent).offerDefinition = this.offerDefinition;
+    (this.compRef.instance as DisplayComponent).updatedFieldName = this.updatedFieldName;
     (this.compRef.instance as DisplayComponent).ngOnChanges();
     this.doc = this.iframe.nativeElement.contentDocument || this.iframe.nativeElement.contentWindow;
     this.doc.body.innerHTML = '';
