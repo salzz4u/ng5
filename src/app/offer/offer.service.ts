@@ -67,14 +67,6 @@ export class OfferService {
     private currencyPipe: CurrencyPipe
   ) {}
 
-  /*  public getOfferFromAdmin(id: string): Observable<OfferAdminData> {
-    return this.http.get<CmsData>(offerContentPath[id]).pipe(
-      switchMap((cmsData) => {
-        return this.getFormControlsFromTemplate(cmsData);
-      })
-    );
-  }*/
-
   public getInterOfferFromAdmin(id: string): Observable<OfferAdminData> {
     return this.http.request('GET', offerContentPath[id], { responseType: 'text' }).pipe(
       map((html) => {
