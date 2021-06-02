@@ -53,6 +53,9 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
             this.displayForm = true;
           });
       });
+    setTimeout(() => {
+      this.selectOfferForm.get('offer').setValue('BAL_TRANSFER');
+    });
   }
 
   generateForm() {
