@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { OfferModule } from './offer/offer.module';
 import { OfferAdminComponent } from './offer-admin/offer-admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DisplayComponent } from './display/display.component';
 import { BdbJsonComponent } from './demo/bdb-json/bdb-json.component';
 import { BdbHtmlComponent } from './demo/bdb-html/bdb-html.component';
 import {MobilePreviewComponent} from './demo/mobile-preview/mobile-preview.component';
@@ -15,12 +14,12 @@ import { AdminComponent } from './demo/admin/admin.component';
 import { HeaderComponent } from './header/header.component';
 import { CurrencyPipe, DatePipe, DecimalPipe } from '@angular/common';
 import {StylerComponent} from './demo/styler/styler.component';
+import {OfferComponent} from './offer/offer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OfferAdminComponent,
-    DisplayComponent,
     BdbJsonComponent,
     BdbHtmlComponent,
     AdminComponent,
@@ -30,7 +29,7 @@ import {StylerComponent} from './demo/styler/styler.component';
   ],
   imports: [BrowserModule, HttpClientModule, ReactiveFormsModule, AppRoutingModule, OfferModule],
   providers: [DatePipe, CurrencyPipe, DecimalPipe],
-  entryComponents: [DisplayComponent],
+  entryComponents: [OfferComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -8,8 +8,8 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { DisplayComponent } from '../../display/display.component';
 import { OfferDefinition, OfferService } from '../../offer/offer.service';
+import {OfferComponent} from '../../offer/offer.component';
 
 @Component({
   selector: 'app-mobile-preview',
@@ -22,7 +22,7 @@ export class MobilePreviewComponent implements AfterViewInit, OnChanges {
   @Input() offerContent: string;
   @Input() offerDefinition: OfferDefinition;
   doc;
-  compRef: ComponentRef<DisplayComponent>;
+  compRef: ComponentRef<OfferComponent>;
 
   constructor(
     private vcRef: ViewContainerRef,
@@ -42,13 +42,13 @@ export class MobilePreviewComponent implements AfterViewInit, OnChanges {
   }
 
   createComponent() {
-    const compFactory = this.resolver.resolveComponentFactory(DisplayComponent);
+    const compFactory = this.resolver.resolveComponentFactory(OfferComponent);
     this.compRef = this.vcRef.createComponent(compFactory);
     this.compRef.location.nativeElement.id = 'innerComp';
-    (this.compRef.instance as DisplayComponent).offerContent = this.offerContent;
-    (this.compRef.instance as DisplayComponent).offerDefinition = this.offerDefinition;
-    (this.compRef.instance as DisplayComponent).updatedFieldName = this.updatedFieldName;
-    (this.compRef.instance as DisplayComponent).ngOnChanges();
+    (this.compRef.instance as OfferComponent).offerContent = this.offerContent;
+    (this.compRef.instance as OfferComponent).offerDefinition = this.offerDefinition;
+    (this.compRef.instance as OfferComponent).updatedFieldName = this.updatedFieldName;
+    (this.compRef.instance as OfferComponent).ngOnChanges();
     this.doc = this.iframe.nativeElement.contentDocument || this.iframe.nativeElement.contentWindow;
     this.doc.body.innerHTML = '';
     this.doc.body.appendChild(this.compRef.location.nativeElement);
