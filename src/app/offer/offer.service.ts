@@ -5,6 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { CurrencyPipe, DatePipe, DecimalPipe } from '@angular/common';
 import {of} from 'rxjs/observable/of';
 import {Observable} from 'rxjs/Observable';
+import {adminStyle} from './offer.model';
 
 export interface OfferDefinition {
   id: string;
@@ -136,7 +137,7 @@ export class OfferService {
       }
       offerHtml = offerHtml.replace(`[[${toReplace}]]`, dynamicHtml);
     });
-    return offerHtml;
+    return this.injectAdminStyles(offerHtml);
   }
 
   public getOffer(id: string): Observable<ConsolidatedOffer> {
@@ -154,7 +155,6 @@ export class OfferService {
   public convertTextToDom(htmlString) {
     const div = document.createElement('div');
     div.innerHTML = htmlString.trim();
-    // Change this to div.childNodes to support multiple top-level nodes
     return div;
   }
 
@@ -203,6 +203,14 @@ export class OfferService {
         } as ConsolidatedOffer;
       })
     );
+  }
+
+  private injectAdminStyles(offerHtml): string {
+    const tempDom = document.createElement('div');
+    tempDom.appendChild(this.convertTextToDom(adminStyle).firstChild);
+    tempDom.appendChild(this.convertTextToDom(offerHtml).firstChild);
+    console.log(tempDom);
+    return tempDom.innerHTML;
   }
 
   private onlyUnique(value, index, self) {
