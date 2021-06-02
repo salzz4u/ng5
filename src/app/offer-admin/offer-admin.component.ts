@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { CmsData, objDiffKey, OfferDefinition, OfferFormControlMeta, OfferService } from '../offer/offer.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { debounceTime, take, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import {Subject} from 'rxjs/Subject';
 
 @Component({
   selector: 'app-offer-admin',
@@ -19,6 +19,7 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
   previewOn = false;
   previousFormValue: any;
   updatedFieldName: string;
+  mobilePreview = true;
 
   unsubscribeAll: Subject<boolean> = new Subject<boolean>();
 

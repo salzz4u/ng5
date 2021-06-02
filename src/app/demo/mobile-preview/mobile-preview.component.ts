@@ -3,8 +3,8 @@ import {
   Component,
   ComponentFactoryResolver,
   ComponentRef,
-  ElementRef,
-  OnInit,
+  ElementRef, Input, OnChanges,
+  OnInit, SimpleChanges,
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
@@ -16,11 +16,11 @@ import { OfferDefinition, OfferService } from '../../offer/offer.service';
   templateUrl: './mobile-preview.component.html',
   styleUrls: ['./mobile-preview.component.scss'],
 })
-export class MobilePreviewComponent implements AfterViewInit {
+export class MobilePreviewComponent implements AfterViewInit, OnChanges {
   @ViewChild('iframe') iframe: ElementRef;
-  url = 'https://kasparasanusauskas.github.io/stackoverflow-demos/demo-app-responsive/index.html';
-  offerInterContent: string;
-  offerInterDefinition: OfferDefinition;
+  @Input() updatedFieldName: string;
+  @Input() offerContent: string;
+  @Input() offerDefinition: OfferDefinition;
   doc;
   compRef: ComponentRef<DisplayComponent>;
 
@@ -29,18 +29,12 @@ export class MobilePreviewComponent implements AfterViewInit {
     private resolver: ComponentFactoryResolver,
     private offerService: OfferService
   ) {
-    offerService.getInterOffer('BAL_TRANSFER').subscribe(
-      (response) => {
-        this.offerInterContent = response.cmsData.data;
-        this.offerInterDefinition = response.offerDefinition;
-        this.createComponent();
-      },
-      (error) => {
-        console.log('navigate to account page or silent fail');
-      }
-    );
     this.setIt();
 
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.createComponent();
   }
 
   ngAfterViewInit() {
@@ -51,10 +45,11 @@ export class MobilePreviewComponent implements AfterViewInit {
     const compFactory = this.resolver.resolveComponentFactory(DisplayComponent);
     this.compRef = this.vcRef.createComponent(compFactory);
     this.compRef.location.nativeElement.id = 'innerComp';
-    (this.compRef.instance as DisplayComponent).offerContent = this.offerInterContent;
-    (this.compRef.instance as DisplayComponent).offerDefinition = this.offerInterDefinition;
+    (this.compRef.instance as DisplayComponent).offerContent = this.offerContent;
+    (this.compRef.instance as DisplayComponent).offerDefinition = this.offerDefinition;
     (this.compRef.instance as DisplayComponent).ngOnChanges();
     this.doc = this.iframe.nativeElement.contentDocument || this.iframe.nativeElement.contentWindow;
+    this.doc.body.innerHTML = '';
     this.doc.body.appendChild(this.compRef.location.nativeElement);
   }
 
