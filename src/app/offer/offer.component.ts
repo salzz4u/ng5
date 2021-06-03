@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, OnChanges, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, ViewChild, ViewEncapsulation} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {OfferDefinition, OfferService} from './offer.service';
 
@@ -8,7 +8,7 @@ import {OfferDefinition, OfferService} from './offer.service';
   styleUrls: ['./offer.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class OfferComponent implements OnChanges, AfterViewInit {
+export class OfferComponent implements OnChanges {
   @Input() updatedFieldName: string;
   @Input() offerContent: string;
   @Input() offerDefinition: OfferDefinition;
@@ -22,16 +22,14 @@ export class OfferComponent implements OnChanges, AfterViewInit {
     this.offerParsed = this.sanitizer.bypassSecurityTrustHtml(
       this.offerService.offerParser(this.offerContent, this.offerDefinition, this.updatedFieldName)
     );
-  }
-
-  ngAfterViewInit() {
-    const parentElement = this.content.nativeElement;
-    const accept: HTMLElement = parentElement.querySelector('.accept');
-    // console.log(accept);
-    if (accept) {
-      accept.addEventListener('click', (e) => this.handleResponse(accept, e, 'accept'));
-    }
-
+   setTimeout(() => {
+     const parentElement = this.content.nativeElement;
+     const accept: HTMLElement = parentElement.querySelector('.accept');
+     // console.log(accept);
+     if (accept) {
+       accept.addEventListener('click', (e) => this.handleResponse(accept, e, 'accept'));
+     }
+   });
   }
 
   handleResponse(elem: HTMLElement, e, eventName: string) {

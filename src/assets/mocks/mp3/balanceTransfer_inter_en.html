@@ -176,7 +176,9 @@
   <style>
     /* Buttons
 ========================================================================== */
-
+.button-group {
+  margin: 10px 0;
+}
 
     a.button-offer,
     span.button-offer {
@@ -384,51 +386,31 @@
             <a
               class="link-offer link-terms"
               style="display: block; font-size: 0.8rem; margin-bottom: 0.5rem"
-              href="javascript:popup('balanceTransfer_en_terms.html');"
+              target="_blank"
+              href="https://www.bmo.com/popups/main/personal/credit-cards/terms-and-conditions-en.html#footnote-68"
             >Terms &amp; Conditions apply.
             </a>
             <div>
-              <div id="check_to_agree">
-                <input
-                  id="agree_checkbox"
-                  name="agree_checkbox"
-                  value="I agree"
-                  type="checkbox"
-                  checked=""
-                  style="visibility: hidden"
-                />
-                <div style="float: left">
-                  <div
-                    id="dmg-lme-offer-checkboxempty"
-                    class="dmg-lme-offer-checkboxempty"
-                    onclick="var el=document.getElementById('dmg-lme-offer-checkboxempty'); el.style.display='none'; el=document.getElementById('dmg-lme-offer-checkboxchecked'); el.style.display='block'; toggleTransferState('true');"
-                    style="display: block"
-                  ></div>
-                  <div
-                    id="dmg-lme-offer-checkboxchecked"
-                    class="dmg-lme-offer-checkboxchecked"
-                    onclick="var el=document.getElementById('dmg-lme-offer-checkboxempty'); el.style.display='block'; el=document.getElementById('dmg-lme-offer-checkboxchecked'); el.style.display='none'; toggleTransferState('false');"
-                    style="display: none"
-                  ></div>
-                </div>
-                <span for="agree_checkbox" class="footnotes" style="font-size: 0.8em; margin-left: 8px; float: left"
-                >By checking the box, you agree to the Terms and Conditions.</span
-                >
-              </div>
               <div class="button-group">
                 <a
+                  data-cta-name="later"
                   href="#"
                   class="Interstitial_RemindMeLater button-offer cta sml"
                 >Ask me later</a>
 
                 <a
+                  data-cta-name="accept"
                   href="javascript:void(0);"
                   id="transferBtn"
-                  class="Interstitial_checkboxBalanceTransfer button-offer cta sml primary btnDisable accept"
+                  class="Interstitial_checkboxBalanceTransfer button-offer cta sml primary accept"
                 >Transfer now</a>
               </div>
 
-              <a href="#" style="margin-top: 0.5rem; display: block" class="Interstitial_NoThanks reject link-offer"
+              <a
+                data-cta-name="reject"
+                href="#"
+                 style="margin-top: 0.5rem; display: block"
+                class="Interstitial_NoThanks reject link-offer"
               >No, thank you</a
               >
               <p></p>

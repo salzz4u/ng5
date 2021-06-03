@@ -21,18 +21,25 @@
         <input [formControlName]="ctrl.formControlName" [id]="'offerForm' + i" type="text" />
       </div>
     </div>
+    <p>Ctas</p>
+    <div [formGroup]="ctaForm">
+      <div *ngFor="let ctrl of offerCtaFormControlMetaArray; let i = index" class="formCtrlRow">
+        <label [for]="'ctaForm' + i">{{ ctrl.formControlName }}</label>
+        <input [formControlName]="ctrl.formControlName" [id]="'ctaForm' + i" type="text" />
+      </div>
+    </div>
     <!--<p>{{ offerForm.value | json }}</p>-->
   </div>
   <div [ngClass]="{ 'full-width': previewOn }">
     <app-offer
       *ngIf="!mobilePreview"
-      [offerContent]="cmsData?.data"
+      [offerContent]="cmsData.data"
       [offerDefinition]="offerAdminDefinition"
       [updatedFieldName]="updatedFieldName"
     ></app-offer>
     <app-mobile-preview
       *ngIf="mobilePreview"
-      [offerContent]="cmsData?.data"
+      [offerContent]="cmsData.data"
       [offerDefinition]="offerAdminDefinition"
       [updatedFieldName]="updatedFieldName"
     >

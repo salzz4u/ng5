@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
-import { CmsData, objDiffKey, OfferDefinition, OfferFormControlMeta, OfferService } from '../offer/offer.service';
+import {CmsData, objDiffKey, OfferCtaFormControlMeta, OfferDefinition, OfferFormControlMeta, OfferService} from '../offer/offer.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { debounceTime, take, takeUntil } from 'rxjs/operators';
 import {Subject} from 'rxjs/Subject';
@@ -13,13 +13,16 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
   cmsData: CmsData;
   offerAdminDefinition: OfferDefinition;
   offerForm: FormGroup;
+  ctaForm: FormGroup;
   selectOfferForm = new FormGroup({});
   offerFormControlMetaArray: Array<OfferFormControlMeta>;
+  offerCtaFormControlMetaArray: Array<OfferCtaFormControlMeta>;
   displayForm = false;
   previewOn = false;
   previousFormValue: any;
+  previousCtaFormValue: any;
   updatedFieldName: string;
-  mobilePreview = true;
+  mobilePreview = false;
 
   unsubscribeAll: Subject<boolean> = new Subject<boolean>();
 
@@ -47,8 +50,10 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
           .subscribe((offerAdminData) => {
             this.cmsData = offerAdminData.cmsData;
             this.offerFormControlMetaArray = offerAdminData.offerFormControlMetaArray;
+            this.offerCtaFormControlMetaArray = offerAdminData.offerCtaFormControlMetaArray;
             // get setup form controls
-            this.generateForm();
+            this.generateFieldForm();
+            this.generateCtaForm();
             this.watchFormAndUpdateChanges();
             this.displayForm = true;
           });
@@ -58,7 +63,15 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  generateForm() {
+  generateCtaForm() {
+    this.ctaForm = new FormGroup({});
+    this.offerCtaFormControlMetaArray.map((offerCtaFormControlMeta) => {
+      this.ctaForm.addControl(offerCtaFormControlMeta.formControlName, new FormControl());
+    });
+    this.previousCtaFormValue = { ...this.ctaForm.value };
+  }
+
+  generateFieldForm() {
     this.offerForm = new FormGroup({});
     this.offerFormControlMetaArray.map((offerFormControlMeta) => {
       this.offerForm.addControl(offerFormControlMeta.formControlName, new FormControl());

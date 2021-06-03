@@ -26,9 +26,14 @@ export interface CmsData {
 export interface OfferAdminData {
   cmsData: CmsData;
   offerFormControlMetaArray: Array<OfferFormControlMeta>;
+  offerCtaFormControlMetaArray: Array<OfferCtaFormControlMeta>;
 }
 
 export interface OfferFormControlMeta {
+  formControlName: string;
+  formControlType?: string;
+}
+export interface OfferCtaFormControlMeta {
   formControlName: string;
   formControlType: string;
 }
@@ -91,7 +96,7 @@ export class OfferService {
       }),
       switchMap((cmsData) => {
         return this.getFormControlsFromTemplate(cmsData);
-      })
+      }),
     );
   }
 
@@ -99,16 +104,28 @@ export class OfferService {
     const offerAdminData = {} as OfferAdminData;
     offerAdminData.cmsData = cmsData;
     const offerFormControlMetaArray: Array<OfferFormControlMeta> = [];
-    const matches: Array<string> = cmsData.data.match(/(?<=\[\[).+?(?=\]\])/g);
-    const uniqueMatches: Array<string> = matches.filter(this.onlyUnique);
+    const ctaFormControlMetaArray: Array<OfferCtaFormControlMeta> = [];
+    const fieldMatches: Array<string> = cmsData.data.match(/(?<=\[\[).+?(?=\]\])/g);
+    const ctaMatches: Array<string> = cmsData.data.match(/(?<=data-cta-name=").+?(?=\")/g);
+    const uniqueFieldMatches: Array<string> = fieldMatches.filter(this.onlyUnique);
+    const uniqueCtaMatches: Array<string> = ctaMatches.filter(this.onlyUnique);
 
-    uniqueMatches.map((ctrlName) => {
+    uniqueFieldMatches.map((ctrlName) => {
       const offerFormControlMeta = {} as OfferFormControlMeta;
       offerFormControlMeta.formControlName = ctrlName.split('_')[0];
       offerFormControlMeta.formControlType = ctrlName.split('_')[1] ? ctrlName.split('_')[1] : 'STR';
       offerFormControlMetaArray.push(offerFormControlMeta);
     });
+
+    uniqueCtaMatches.map(ctrlName => {
+      const ctaFormControlMeta = {} as OfferCtaFormControlMeta;
+      ctaFormControlMeta.formControlName = ctrlName.split('_')[0];
+      ctaFormControlMeta.formControlType = 'STR';
+      ctaFormControlMetaArray.push(ctaFormControlMeta);
+    });
+
     offerAdminData.offerFormControlMetaArray = offerFormControlMetaArray;
+    offerAdminData.offerCtaFormControlMetaArray = ctaFormControlMetaArray;
     return of(offerAdminData);
   }
 
@@ -117,8 +134,8 @@ export class OfferService {
     if (!offerHtml) {
       return offerHtml;
     }
-    const matches: Array<string> = offerHtml.match(/(?<=\[\[).+?(?=\]\])/g);
-    matches.map((toReplace) => {
+    const fieldMatches: Array<string> = offerHtml.match(/(?<=\[\[).+?(?=\]\])/g);
+    fieldMatches.map((toReplace) => {
       const paramDef = toReplace.split('_');
       const paramTag = `[${paramDef[0]}]`;
       const paramName = paramTag.split(/[\[\]]+/)[1];
@@ -209,7 +226,7 @@ export class OfferService {
     const tempDom = document.createElement('div');
     tempDom.appendChild(this.convertTextToDom(adminStyle).firstChild);
     tempDom.appendChild(this.convertTextToDom(offerHtml).firstChild);
-    console.log(tempDom);
+    // console.log(tempDom);
     return tempDom.innerHTML;
   }
 

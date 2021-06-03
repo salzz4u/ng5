@@ -163,39 +163,9 @@
             >Terms & Conditions apply.
             </a>
             <div style="width: 600px; margin-top: 1rem">
-              <div id="check_to_agree">
-                <input
-                  id="agree_checkbox"
-                  name="agree_checkbox"
-                  value="I agree"
-                  type="checkbox"
-                  checked=""
-                  style="visibility: hidden"
-                />
-                <div style="float: left; display: none">
-                  <div
-                    id="dmg-lme-offer-checkboxempty"
-                    class="dmg-lme-offer-checkboxempty"
-                    onclick="var el=document.getElementById('dmg-lme-offer-checkboxempty'); el.style.display='none'; el=document.getElementById('dmg-lme-offer-checkboxchecked'); el.style.display='block'; toggleTransferState('true');"
-                    style="display: block"
-                  ></div>
-                  <div
-                    id="dmg-lme-offer-checkboxchecked"
-                    class="dmg-lme-offer-checkboxchecked"
-                    onclick="var el=document.getElementById('dmg-lme-offer-checkboxempty'); el.style.display='block'; el=document.getElementById('dmg-lme-offer-checkboxchecked'); el.style.display='none'; toggleTransferState('false');"
-                    style="display: none"
-                  ></div>
-                </div>
-                <span
-                  for="agree_checkbox"
-                  class="footnotes"
-                  style="font-size: 0.8em; margin-left: 10px; display: none"
-                >By checking the box, you consent to the Terms and
-                      Conditions.</span
-                >
-              </div>
               <p class="buttons">
                 <a
+                  data-cta-name="later"
                   href="#"
                   class="Interstitial_RemindMeLater button cta sml"
                   style="float: left; margin-right: 10px"
@@ -205,6 +175,7 @@
               <div id="continue_button">
                 <div>
                   <a
+                    data-cta-name="accept"
                     href="javascript:void(0);"
                     id="transferBtn"
                     class="Interstitial_checkboxBalanceTransfer button cta sml primary accept"
@@ -217,6 +188,7 @@
                 consent to the Terms and Conditions.
               </p>
               <a
+                data-cta-name="reject"
                 href="#"
                 style="margin-top: 0rem; display: block"
                 class="Interstitial_NoThanks"
