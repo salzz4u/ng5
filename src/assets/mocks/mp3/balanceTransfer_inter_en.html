@@ -132,7 +132,7 @@
     }
 
     .site__main {
-      padding: 0 20px;
+      padding-left: 20px;
       border-top: 10px solid #0079c1;
     }
 
@@ -149,11 +149,20 @@
       font-size: 1.55rem;
     }
 
+    .panel {
+      margin: 20px 0 0 20px;
+      padding: 1px 20px;
+      background-color: #e5f1f9;
+      border-radius: 10px;
+      color: #0079c1
+    }
+
     .panel p {
       text-align: center;
     }
 
     .panel p .big {
+      display: block;
       font-size: 1.475rem;
     }
 
@@ -171,14 +180,18 @@
         flex-direction: column-reverse;
         width: 100%;
       }
+
+      .panel {
+        margin: auto;
+      }
     }
   </style>
   <style>
     /* Buttons
 ========================================================================== */
-.button-group {
-  margin: 10px 0;
-}
+    .button-group {
+      margin: 20px 0;
+    }
 
     a.button-offer,
     span.button-offer {
@@ -354,8 +367,8 @@
     <section class="site__banner"><img src="/assets/mocks/mp3/banner-en.jpg" alt=""/></section>
     <section class="site__main">
       <div class="main__wrapper">
-        <div class="columns two has-panel">
-          <div class="">
+        <div class="columns">
+          <div class="column-panel">
             <h2 style="color: #0079c1">Transfer balances <b>now and save!</b></h2>
             <p>
               Congratulations on your recent credit limit increase. Now that it’s in place, take advantage of that
@@ -409,22 +422,21 @@
               <a
                 data-cta-name="reject"
                 href="#"
-                 style="margin-top: 0.5rem; display: block"
+                style="margin-top: 0.5rem; display: block"
                 class="Interstitial_NoThanks reject link-offer"
               >No, thank you</a
               >
               <p></p>
             </div>
           </div>
-          <div class="">
+          <div class="column-highlight">
             <div
               class="panel"
-              style="background-color: #e5f1f9; border-radius: 10px; color: #0079c1"
             >
               <p>
                 <strong
-                ><span class="big"><span id="RATE:2">[[interest-rate_NUM_INT]]</span>%</span><br/>for up
-                  to<br/><span class="big"
+                ><span class="big"><span id="RATE:2">[[interest-rate_NUM_INT]]</span>%</span>for up
+                  to<span class="big"
                   ><span id="RESERVED_5:2">[[up-to-months_NUM_INT]]</span> </span
                   >months</strong
                 >

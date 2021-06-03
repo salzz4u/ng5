@@ -201,8 +201,16 @@ export class OfferService {
   private getInterHtmlContent(offer: OfferDefinition): Observable<ConsolidatedOffer> {
     return this.http.request('GET', offerContentPath[offer.id], { responseType: 'text' }).pipe(
       map((html) => {
+
         const offerContentHtml = this.convertTextToDom(html);
-        const cmsData: CmsData = { data: offerContentHtml.querySelector(offer.extractTag).outerHTML };
+        const template = offerContentHtml.querySelector(offer.extractTag);
+        const styles = Array.from(offerContentHtml.querySelectorAll('style[data-name="bdb"]'));
+
+        if (styles.length > 0) {
+          styles.forEach((style) => template.prepend(style));
+        }
+
+        const cmsData: CmsData = { data: template.outerHTML };
         return {
           cmsData,
           offerDefinition: offer,
