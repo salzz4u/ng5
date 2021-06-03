@@ -207,7 +207,8 @@ export class OfferService {
         const styles = Array.from(offerContentHtml.querySelectorAll('style[data-name="bdb"]'));
 
         if (styles.length > 0) {
-          styles.forEach((style) => template.prepend(style));
+          // because current version of typescript does not support prepend
+          styles.forEach((style) => template['prepend'](style));
         }
 
         const cmsData: CmsData = { data: template.outerHTML };

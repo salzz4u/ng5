@@ -122,6 +122,709 @@
 ></div>
 <div class="site__wrapper">
   <style>
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Thin.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 100;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Light.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Regular.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Medium.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Bold.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-ExtraBold.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Black.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 900;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: capco-icon-fonts;
+      src: url(./assets/fonts/capco-icon-fonts.woff) format("woff");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap
+    }
+
+
+
+    .capco-icon {
+      display: inline-block;
+      margin: 1px;
+      padding: 0;
+      font-family: capco-icon-fonts !important;
+      font-size: 2.4rem;
+      line-height: 1;
+      height: auto;
+      min-height: 2.4rem;
+      font-style: normal;
+      font-weight: 400;
+      color: #0079c1;
+      text-align: center;
+      text-transform: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      speak: none
+    }
+
+    .capco-icon:before {
+      content: '\e800'
+    }
+
+    .capco-icon.inactive, .capco-icon[inactive] {
+      color: #d9dce1
+    }
+
+    .capco-icon[danger] {
+      color: #c81414
+    }
+
+    .capco-icon-vertical-center {
+      vertical-align: middle
+    }
+
+    .item-inner ion-icon.capco-icon, ion-item.item ion-icon.capco-icon {
+      font-size: 2.1328rem;
+      min-height: 1.6rem
+    }
+
+    [ghost-button] .capco-icon.inactive, [ghost-button] .capco-icon[inactive] {
+      color: #fff;
+      opacity: .5
+    }
+
+    [name=icon-about]:before {
+      content: "\e800"
+    }
+
+    [name=icon-account]:before {
+      content: "\e907"
+    }
+
+    [name=icon-add]:before {
+      content: "\e801"
+    }
+
+    [name=icon-added]:before {
+      content: "\e802"
+    }
+
+    [name=icon-applyonline]:before {
+      content: "\e803"
+    }
+
+    [name=icon-appointments]:before {
+      content: "\e804"
+    }
+
+    [name=icon-approved]:before {
+      content: "\e805"
+    }
+
+    [name=icon-back]:before {
+      content: "\e806"
+    }
+
+    [name=icon-backbutton]:before {
+      content: "\e902"
+    }
+
+    [name=icon-bank-account]:before {
+      content: "\e908"
+    }
+
+    [name=icon-bill-empty]:before {
+      content: "\e840"
+    }
+
+    [name=icon-calculator]:before {
+      content: "\e809"
+    }
+
+    [name=icon-bill-pay]:before {
+      content: "\e91c"
+    }
+
+    [name=icon-bill]:before {
+      content: "\e807"
+    }
+
+    [name=icon-calendar]:before {
+      content: "\e91d"
+    }
+
+    [name=icon-camera]:before {
+      content: "\e80a"
+    }
+
+    [name=icon-check-circle-filled]:before {
+      content: "\e9030"
+    }
+
+    [name=icon-check-circle-unfilled]:before {
+      content: "\e9031"
+    }
+
+    [name=icon-check]:before {
+      content: "\e903"
+    }
+
+    [name=icon-chevron-down-down]:before {
+      content: "\e80b0"
+    }
+
+    [name=icon-chevron-down]:before {
+      content: "\e80ac"
+    }
+
+    [name=icon-chevron-left-left]:before {
+      content: "\e80ae"
+    }
+
+    [name=icon-chevron-back]:before {
+      content: "\e80aa"
+    }
+
+    [name=icon-chevron-right-right]:before {
+      content: "\e80af"
+    }
+
+    [name=icon-chevron-forward]:before {
+      content: "\e80ab"
+    }
+
+    [name=icon-chevron-up-up]:before {
+      content: "\e80b1"
+    }
+
+    [name=icon-chevron-up]:before {
+      content: "\e80ad"
+    }
+
+    [name=icon-combined-statements]:before {
+      content: "\e928"
+    }
+
+    [name=icon-contact]:before {
+      content: "\e80b"
+    }
+
+    [name=icon-conversation]:before {
+      content: "\e80c"
+    }
+
+    [name=icon-credit-card-settings]:before {
+      content: "\e91e"
+    }
+
+    [name=icon-credit-card]:before {
+      content: "\e922"
+    }
+
+    [name=icon-data]:before {
+      content: "\e923"
+    }
+
+    [name=icon-delete]:before {
+      content: "\e80d"
+    }
+
+    [name=icon-document-1]:before {
+      content: "\e924"
+    }
+
+    [name=icon-document-2]:before {
+      content: "\e925"
+    }
+
+    [name=icon-document]:before {
+      content: "\e920"
+    }
+
+    [name=icon-downloads]:before {
+      content: "\e80da"
+    }
+
+    [name=icon-enrollment]:before {
+      content: "\e80e"
+    }
+
+    [name=icon-euro]:before {
+      content: "\e80f"
+    }
+
+    [name=icon-exit]:before {
+      content: "\e810"
+    }
+
+    [name=icon-facebook]:before {
+      content: "\e90b"
+    }
+
+    [name=icon-favourite]:before {
+      content: "\e811"
+    }
+
+    [name=icon-filter]:before {
+      content: "\e940"
+    }
+
+    [name=icon-fingerscan]:before {
+      content: "\e812"
+    }
+
+    [name=icon-forward]:before {
+      content: "\e813"
+    }
+
+    [name=icon-global]:before {
+      content: "\e814"
+    }
+
+    [name=icon-graph-1]:before {
+      content: "\e815"
+    }
+
+    [name=icon-graph-2]:before {
+      content: "\e816"
+    }
+
+    [name=icon-graph-3]:before {
+      content: "\e817"
+    }
+
+    [name=icon-growth]:before {
+      content: "\e818"
+    }
+
+    [name=icon-home]:before {
+      content: "\e819"
+    }
+
+    [name=icon-institution]:before {
+      content: "\e81a"
+    }
+
+    [name=icon-insurance]:before {
+      content: "\e81b"
+    }
+
+    [name=icon-internal-transfer]:before {
+      content: "\e927"
+    }
+
+    [name=icon-investments]:before {
+      content: "\e81c"
+    }
+
+    [name=icon-leaf]:before {
+      content: "\e851"
+    }
+
+    [name=icon-legal]:before {
+      content: "\e929"
+    }
+
+    [name=icon-lightbulb]:before {
+      content: "\e81d"
+    }
+
+    [name=icon-line-graph]:before {
+      content: "\e92a"
+    }
+
+    [name=icon-linkedin]:before {
+      content: "\e90c"
+    }
+
+    [name=icon-location]:before {
+      content: "\e81e"
+    }
+
+    [name=icon-lock]:before {
+      content: "\e81f"
+    }
+
+    [name=icon-logout]:before {
+      content: "\e909"
+    }
+
+    [name=icon-mail]:before {
+      content: "\e820"
+    }
+
+    [name=icon-menu]:before {
+      content: "\e821"
+    }
+
+    [name=icon-messenger]:before {
+      content: "\e92b"
+    }
+
+    [name=icon-microphone]:before {
+      content: "\e822"
+    }
+
+    [name=icon-minus-circle]:before {
+      content: "\e92c"
+    }
+
+    [name=icon-mobile-cash]:before {
+      content: "\e904"
+    }
+
+    [name=icon-mobile]:before {
+      content: "\e92d"
+    }
+
+    [name=icon-money]:before {
+      content: "\e823"
+    }
+
+    [name=icon-more-1]:before {
+      content: "\e91b"
+    }
+
+    [name=icon-more-2]:before {
+      content: "\e92e"
+    }
+
+    [name=icon-move-in]:before {
+      content: "\e92f"
+    }
+
+    [name=icon-move]:before {
+      content: "\e824"
+    }
+
+    [name=icon-nav-account]:before {
+      content: "\e930"
+    }
+
+    [name=icon-nav-bank-account]:before {
+      content: "\e910"
+    }
+
+    [name=icon-nav-bill-pay]:before {
+      content: "\e931"
+    }
+
+    [name=icon-nav-business]:before {
+      content: "\e919a"
+    }
+
+    [name=icon-funds-dollar]:before {
+      content: "\e93e"
+    }
+
+    [name=icon-nav-calendar]:before {
+      content: "\e90a"
+    }
+
+    [name=icon-nav-cheque]:before {
+      content: "\e932"
+    }
+
+    [name=icon-nav-contact]:before {
+      content: "\e911"
+    }
+
+    [name=icon-nav-get-in-touch]:before {
+      content: "\e905"
+    }
+
+    [name=icon-nav-home]:before {
+      content: "\e912"
+    }
+
+    [name=icon-nav-internal-transfer]:before {
+      content: "\e933"
+    }
+
+    [name=icon-nav-location]:before {
+      content: "\e913"
+    }
+
+    [name=icon-nav-log-out]:before {
+      content: "\e914"
+    }
+
+    [name=icon-nav-message-mail]:before {
+      content: "\e916"
+    }
+
+    [name=icon-nav-mobile-cash]:before {
+      content: "\e926"
+    }
+
+    [name=icon-nav-message]:before {
+      content: "\e915"
+    }
+
+    [name=icon-nav-notifications]:before {
+      content: "\e917"
+    }
+
+    [name=icon-nav-profile]:before {
+      content: "\e918"
+    }
+
+    [name=icon-nav-settings]:before {
+      content: "\e919"
+    }
+
+    [name=icon-new]:before {
+      content: "\e936"
+    }
+
+    [name=icon-new-message]:before {
+      content: "\e921"
+    }
+
+    [name=icon-notification]:before {
+      content: "\e901"
+    }
+
+    [name=icon-offline]:before {
+      content: "\e825"
+    }
+
+    [name=icon-paperclip]:before {
+      content: "\e91a"
+    }
+
+    [name=icon-pdf]:before {
+      content: "\e853"
+    }
+
+    [name=icon-percent]:before {
+      content: "\e826"
+    }
+
+    [name=icon-pencil]:before {
+      content: "\e852"
+    }
+
+    [name=icon-person]:before {
+      content: "\e827"
+    }
+
+    [name=icon-photo]:before {
+      content: "\e828"
+    }
+
+    [name=icon-plan]:before {
+      content: "\e829"
+    }
+
+    [name=icon-plus-circle]:before {
+      content: "\e939"
+    }
+
+    [name=icon-print]:before {
+      content: "\e854"
+    }
+
+    [name=icon-print-no-fill]:before {
+      content: "\e93f"
+    }
+
+    [name=icon-profile]:before {
+      content: "\e82a"
+    }
+
+    [name=icon-questions]:before {
+      content: "\e855"
+    }
+
+    [name=icon-quickscan]:before {
+      content: "\e935"
+    }
+
+    [name=icon-reload]:before {
+      content: "\e82b"
+    }
+
+    [name=icon-remove-filled]:before {
+      content: "\e856"
+    }
+
+    [name=icon-remove]:before {
+      content: "\e7f9"
+    }
+
+    [name=icon-rewards]:before {
+      content: "\e82d"
+    }
+
+    [name=icon-save]:before {
+      content: "\e90f"
+    }
+
+    [name=icon-search]:before {
+      content: "\e82e"
+    }
+
+    [name=icon-security-1]:before {
+      content: "\e93a"
+    }
+
+    [name=icon-security]:before {
+      content: "\e900"
+    }
+
+    [name=icon-send]:before {
+      content: "\e93b"
+    }
+
+    [name=icon-settings]:before {
+      content: "\e82f"
+    }
+
+    [name=icon-share]:before {
+      content: "\e82fa"
+    }
+
+    [name=icon-suitcase]:before {
+      content: "\e830"
+    }
+
+    [name=icon-sunshine]:before {
+      content: "\e841"
+    }
+
+    [name=icon-swap-view]:before {
+      content: "\e906"
+    }
+
+    [name=icon-taxplanning]:before {
+      content: "\e831"
+    }
+
+    [name=icon-time]:before {
+      content: "\e832"
+    }
+
+    [name=icon-transfer]:before {
+      content: "\e836"
+    }
+
+    [name=icon-transfer-1]:before {
+      content: "\e93c"
+    }
+
+    [name=icon-transfer-2]:before {
+      content: "\e834"
+    }
+
+    [name=icon-transfer-3]:before {
+      content: "\e835"
+    }
+
+    [name=icon-transition]:before {
+      content: "\e837"
+    }
+
+    [name=icon-trash]:before {
+      content: "\e91f"
+    }
+
+    [name=icon-twitter]:before {
+      content: "\e90d"
+    }
+
+    [name=icon-unlock]:before {
+      content: "\e838"
+    }
+
+    [name=icon-uploads]:before {
+      content: "\e934"
+    }
+
+    [name=icon-version]:before {
+      content: "\e93d"
+    }
+
+    [name=icon-wallet]:before {
+      content: "\e839"
+    }
+
+    [name=icon-warning-1]:before {
+      content: "\e83a"
+    }
+
+    [name=icon-warning-2]:before {
+      content: "\e83b"
+    }
+
+    [name=icon-youtube]:before {
+      content: "\e90e"
+    }
+
+    [name=icon-zelle]:before {
+      content: "\e937"
+    }
+
+    [name=icon-face-id]:before {
+      content: "\e920a"
+    }
+
+    [name=icon-fingerprint]:before {
+      content: "\e922a"
+    }
+
+    [name=icon-dialpad]:before {
+      content: "\e921a"
+    }
+
+     body {
+      background-color: #f5f6f7;
+      font-family: Heebo, sans-serif;
+      color: #001928
+    }
+
+  </style>
+  <style>
     .site__main, .site__wrapper, .site__container, .main__wrapper {
       display: flex;
     }
@@ -165,11 +868,28 @@
       display: block;
       font-size: 1.475rem;
     }
-
+    /*responsive*/
+    .web {
+      display: initial;
+    }
+    .mobile {
+      display: none;
+    }
     @media (max-width: 767px) {
+      /*responsive*/
+      .web {
+        display: none;
+      }
+      .mobile {
+        display: initial;
+      }
+
       .site__container {
         flex-basis: auto;
         flex-direction: column;
+      }
+      .site__main {
+        padding: 0;
       }
 
       .site__banner img {
@@ -183,6 +903,9 @@
 
       .panel {
         margin: auto;
+      }
+      .column-panel {
+        padding: 10px;
       }
     }
   </style>
@@ -362,9 +1085,11 @@
       margin-bottom: 0.5rem;
     }
   </style>
-
   <div class="site__container">
-    <section class="site__banner"><img src="/assets/mocks/mp3/banner-en.jpg" alt=""/></section>
+    <section class="site__banner">
+      <img class="web" src="/assets/mocks/mp3/banner-en.jpg" alt=""/>
+      <img class="mobile" src="/assets/mocks/mp3/banner-en-mob1.jpg" alt=""/>
+    </section>
     <section class="site__main">
       <div class="main__wrapper">
         <div class="columns">
