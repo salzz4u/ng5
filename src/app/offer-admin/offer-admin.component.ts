@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {CmsData, objDiffKey, OfferCtaFormControlMeta, OfferDefinition, OfferFormControlMeta, OfferService} from '../offer/offer.service';
-import { FormControl, FormGroup } from '@angular/forms';
-import { debounceTime, take, takeUntil } from 'rxjs/operators';
+import {FormControl, FormGroup} from '@angular/forms';
+import {debounceTime, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs/Subject';
 
 @Component({
@@ -26,7 +26,8 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
 
   unsubscribeAll: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private offerService: OfferService) {}
+  constructor(private offerService: OfferService) {
+  }
 
   ngOnDestroy() {
     this.unsubscribeAll.next(true);
@@ -63,12 +64,20 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
+
   generateCtaForm() {
     this.ctaForm = new FormGroup({});
     this.offerCtaFormControlMetaArray.map((offerCtaFormControlMeta) => {
-      this.ctaForm.addControl(offerCtaFormControlMeta.formControlName, new FormControl());
+      this.ctaForm.addControl(offerCtaFormControlMeta.formControlName,
+        new FormControl(this.setValueForCtaForm()));
     });
     // this.previousCtaFormValue = { ...this.ctaForm.value };
+  }
+
+  setValueForCtaForm(): any {
+    // edit more, pass values like this:
+    // return {ctaLmeResponseCode: 'sadasd', ctaType: 'accept', ctaUrl: 'adafad'}
+    return {};
   }
 
   generateFieldForm() {
@@ -76,7 +85,7 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
     this.offerFormControlMetaArray.map((offerFormControlMeta) => {
       this.offerForm.addControl(offerFormControlMeta.formControlName, new FormControl());
     });
-    this.previousFormValue = { ...this.offerForm.value };
+    this.previousFormValue = {...this.offerForm.value};
   }
 
   private watchFormAndUpdateChanges() {
@@ -87,8 +96,8 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
       this.offerFormControlMetaArray.map((ctrl) => {
         offerAdminDefinition[ctrl.formControlName] = this.offerForm.get(ctrl.formControlName).value;
       });
-      this.offerAdminDefinition = { ...offerAdminDefinition };
-      this.previousFormValue = { ...this.offerForm.value };
+      this.offerAdminDefinition = {...offerAdminDefinition};
+      this.previousFormValue = {...this.offerForm.value};
     });
   }
 }

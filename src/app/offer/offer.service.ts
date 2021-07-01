@@ -15,10 +15,9 @@ export interface OfferDefinition {
 }
 
 export interface CtaDefinition {
-  ctaName: string;
-  ctaLmeResponseCode?: string;
-  ctaType?: string;
-  ctaUrl?: string;
+  ctaLmeResponseCode: string;
+  ctaType: string;
+  ctaUrl: string;
 }
 
 export interface ConsolidatedOffer {

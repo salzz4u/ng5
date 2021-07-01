@@ -27,7 +27,7 @@
         <label [for]="'ctaForm' + i">{{ ctrl.formControlName }}</label>
         <app-ctas
           [ctaName]="'ctrl' + i"
-          [ctaValue]="{ctaName: ctrl.formControlName}"
+          [ctaValue]="ctaForm.get(ctrl.formControlName).value ? ctaForm.get(ctrl.formControlName).value : {}"
           [formControlName]="ctrl.formControlName" [id]="'ctaForm' + i"></app-ctas>
       </div>
     </div>
