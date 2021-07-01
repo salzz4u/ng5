@@ -68,7 +68,7 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
     this.offerCtaFormControlMetaArray.map((offerCtaFormControlMeta) => {
       this.ctaForm.addControl(offerCtaFormControlMeta.formControlName, new FormControl());
     });
-    this.previousCtaFormValue = { ...this.ctaForm.value };
+    // this.previousCtaFormValue = { ...this.ctaForm.value };
   }
 
   generateFieldForm() {

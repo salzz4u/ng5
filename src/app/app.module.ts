@@ -15,6 +15,7 @@ import { HeaderComponent } from './header/header.component';
 import { CurrencyPipe, DatePipe, DecimalPipe } from '@angular/common';
 import {StylerComponent} from './demo/styler/styler.component';
 import {OfferComponent} from './offer/offer.component';
+import {CtasComponent} from './ctas/ctas.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {OfferComponent} from './offer/offer.component';
     HeaderComponent,
     MobilePreviewComponent,
     StylerComponent,
+    CtasComponent,
   ],
   imports: [BrowserModule, HttpClientModule, ReactiveFormsModule, AppRoutingModule, OfferModule],
   providers: [DatePipe, CurrencyPipe, DecimalPipe],

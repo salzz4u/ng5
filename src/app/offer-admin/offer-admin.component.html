@@ -25,10 +25,13 @@
     <div [formGroup]="ctaForm">
       <div *ngFor="let ctrl of offerCtaFormControlMetaArray; let i = index" class="formCtrlRow">
         <label [for]="'ctaForm' + i">{{ ctrl.formControlName }}</label>
-        <input [formControlName]="ctrl.formControlName" [id]="'ctaForm' + i" type="text" />
+        <app-ctas
+          [ctaName]="'ctrl' + i"
+          [ctaValue]="{ctaName: ctrl.formControlName}"
+          [formControlName]="ctrl.formControlName" [id]="'ctaForm' + i"></app-ctas>
       </div>
     </div>
-    <!--<p>{{ offerForm.value | json }}</p>-->
+    <p>{{ ctaForm.value | json }}</p>
   </div>
   <div [ngClass]="{ 'full-width': previewOn }">
     <app-offer

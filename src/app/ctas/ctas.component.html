@@ -1,0 +1,16 @@
+<div [formGroup]="ctasForm">
+  <div class="form-control">
+    <label [for]="ctaName + 'ctaLmeResponseCode'">Response Code</label>
+    <input [name]="ctaName + 'ctaLmeResponseCode'" type="text" formControlName="ctaLmeResponseCode">
+  </div>
+  <div class="form-control">
+    <label [for]="ctaName + 'ctaType'">Type</label>
+    <input [name]="ctaName + 'ctaType'" type="text" formControlName="ctaType">
+  </div>
+  <div class="form-control">
+    <label [for]="ctaName + 'ctaUrl'">Url</label>
+    <input [name]="ctaName + 'ctaUrl'" type="text" formControlName="ctaUrl">
+  </div>
+</div>
+
+<div>Form value: {{ctasForm.value | json}}</div>

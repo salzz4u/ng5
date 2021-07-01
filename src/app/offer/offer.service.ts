@@ -14,6 +14,13 @@ export interface OfferDefinition {
   [key: string]: any;
 }
 
+export interface CtaDefinition {
+  ctaName: string;
+  ctaLmeResponseCode?: string;
+  ctaType?: string;
+  ctaUrl?: string;
+}
+
 export interface ConsolidatedOffer {
   cmsData: CmsData;
   offerDefinition: OfferDefinition;
