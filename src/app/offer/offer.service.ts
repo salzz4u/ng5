@@ -17,6 +17,7 @@ export interface OfferDefinition {
 export interface CtaDefinition {
   ctaLmeResponseCode: string;
   ctaType: string;
+  ctaAction: string;
   ctaUrl: string;
 }
 
@@ -114,7 +115,7 @@ export class OfferService {
     const fieldMatches: Array<string> = cmsData.data.match(/(?<=\[\[).+?(?=\]\])/g);
     const ctaMatches: Array<string> = cmsData.data.match(/(?<=data-cta-name=").+?(?=\")/g);
     const uniqueFieldMatches: Array<string> = fieldMatches.filter(this.onlyUnique);
-    const uniqueCtaMatches: Array<string> = ctaMatches.filter(this.onlyUnique);
+    const uniqueCtaMatches: Array<string> = ctaMatches.map(ctaName => ctaName.replace(/-/g, ' ')).filter(this.onlyUnique);
 
     uniqueFieldMatches.map((ctrlName) => {
       const offerFormControlMeta = {} as OfferFormControlMeta;

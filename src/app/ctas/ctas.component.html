@@ -1,11 +1,27 @@
 <div [formGroup]="ctasForm">
   <div class="form-control">
     <label [for]="ctaName + 'ctaLmeResponseCode'">Response Code</label>
-    <input [name]="ctaName + 'ctaLmeResponseCode'" type="text" formControlName="ctaLmeResponseCode">
+    <select [name]="ctaName + 'ctaLmeResponseCode'" formControlName="ctaLmeResponseCode" id="ctaLmeResponseCode">
+      <ng-container *ngFor="let responseCode of responseCodes">
+        <option [value]="responseCode?.value">{{responseCode?.label}}</option>
+      </ng-container>
+    </select>
+  </div>
+  <div class="form-control">
+    <label [for]="ctaName + 'ctaAction'">CTA Action</label>
+    <select [name]="ctaName + 'ctaAction'" formControlName="ctaAction" id="ctaAction">
+      <ng-container *ngFor="let ctaAction of ctaActions">
+        <option [value]="ctaAction?.value">{{ctaAction?.label}}</option>
+      </ng-container>
+    </select>
   </div>
   <div class="form-control">
     <label [for]="ctaName + 'ctaType'">Type</label>
-    <input [name]="ctaName + 'ctaType'" type="text" formControlName="ctaType">
+    <select [name]="ctaName + 'ctaType'" formControlName="ctaType" id="ctaType">
+      <ng-container *ngFor="let cta of ctaTypes">
+        <option [value]="cta?.value">{{cta?.label}}</option>
+      </ng-container>
+    </select>
   </div>
   <div class="form-control">
     <label [for]="ctaName + 'ctaUrl'">Url</label>
