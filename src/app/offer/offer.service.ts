@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { map, switchMap } from 'rxjs/operators';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CurrencyPipe, DatePipe, DecimalPipe } from '@angular/common';
-import {of} from 'rxjs/observable/of';
-import {Observable} from 'rxjs/Observable';
-import {adminStyle} from './offer.model';
+import { of } from 'rxjs/observable/of';
+import { Observable } from 'rxjs/Observable';
+import { adminStyle } from './offer.model';
 
 export interface OfferDefinition {
   id: string;
@@ -49,12 +49,14 @@ export enum offerContentPath {
   'OFFER-4000' = '/assets/mocks/mp1/en_interstial.html',
   'CREDIT_LIMIT' = '/assets/mocks/mp2/credit-limit_inter_en.html',
   'BAL_TRANSFER' = '/assets/mocks/mp3/balanceTransfer_inter_en.html',
+  'INTERSTITIAL' = '/assets/mocks/mp4/interstitial_en.html',
 }
 
 enum offerWrapper {
   'OFFER-4000' = '.main__wrapper',
   'CREDIT_LIMIT' = '.site__wrapper',
   'BAL_TRANSFER' = '.site__wrapper',
+  'INTERSTITIAL' = '.site__wrapper',
 }
 
 export const objDiffKey = (o1, o2) => {
@@ -78,7 +80,7 @@ export class OfferService {
     private datePipe: DatePipe,
     private decimalPipe: DecimalPipe,
     private currencyPipe: CurrencyPipe
-  ) {}
+  ) { }
 
   public getInterOfferFromAdmin(id: string): Observable<OfferAdminData> {
     return this.http.request('GET', offerContentPath[id], { responseType: 'text' }).pipe(
@@ -186,10 +188,10 @@ export class OfferService {
     let formatedValue;
     switch (format) {
       case 'LONG':
-        formatedValue = this.datePipe.transform(value, 'dd, MMM yyyy');
+        formatedValue = this.datePipe.transform(value, 'MMM dd, yyyy');
         break;
       case 'CUR':
-        formatedValue = this.currencyPipe.transform(value);
+        formatedValue = this.currencyPipe.transform(value, '', true, '1.0-0');
         break;
       case 'INT':
         formatedValue = this.decimalPipe.transform(value);
