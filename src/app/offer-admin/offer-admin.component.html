@@ -9,11 +9,10 @@
     </select>
   </div>
   <button *ngIf="!previewOn" (click)="mobilePreview = !mobilePreview" type="button">{{ mobilePreview ? 'Web preview' : 'Mobile Preview' }}</button>
-  <button *ngIf="!mobilePreview" (click)="previewOn = !previewOn" type="button">{{ previewOn ? 'Show Form' : 'Full width Preview' }}</button>
 </div>
 
 
-<div class="cols" *ngIf="displayForm">
+<div class="cols" *ngIf="displayForm" [ngClass]="{'forceRow': !mobilePreview}">
   <div *ngIf="!previewOn">
     <p>Form</p>
     <div [formGroup]="offerForm">
@@ -23,7 +22,7 @@
       </div>
     </div>
     <p>Ctas</p>
-    <div [formGroup]="ctaForm">
+    <div [formGroup]="ctaForm" [ngClass]="{cols: !mobilePreview}">
       <div *ngFor="let ctrl of offerCtaFormControlMetaArray; let i = index" class="formCtrlRow">
         <label [for]="'ctaForm' + i">{{ ctrl.formControlName }}</label>
         <app-ctas
@@ -32,7 +31,7 @@
           [formControlName]="ctrl.formControlName" [id]="'ctaForm' + i"></app-ctas>
       </div>
     </div>
-    <p>{{ ctaForm.value | json }}</p>
+<!--    <p>{{ ctaForm.value | json }}</p>-->
   </div>
   <div [ngClass]="{ 'full-width': previewOn }">
     <app-offer
