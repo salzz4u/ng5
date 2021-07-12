@@ -8,14 +8,6 @@
     </select>
   </div>
   <div class="form-control">
-    <label [for]="ctaName + 'ctaAction'">CTA Action</label>
-    <select [name]="ctaName + 'ctaAction'" formControlName="ctaAction" id="ctaAction">
-      <ng-container *ngFor="let ctaAction of ctaActions">
-        <option [value]="ctaAction?.value">{{ctaAction?.label}}</option>
-      </ng-container>
-    </select>
-  </div>
-  <div class="form-control">
     <label [for]="ctaName + 'ctaType'">Type</label>
     <select [name]="ctaName + 'ctaType'" formControlName="ctaType" id="ctaType">
       <ng-container *ngFor="let cta of ctaTypes">
