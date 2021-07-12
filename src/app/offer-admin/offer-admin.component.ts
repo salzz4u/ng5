@@ -76,8 +76,8 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
 
   setValueForCtaForm(): any {
     // edit more, pass values like this:
-    // return {ctaLmeResponseCode: 'sadasd', ctaType: 'accept', ctaUrl: 'adafad'}
-    return {};
+     return {ctaLmeResponseCode: '', ctaAction: '', ctaType: '', ctaUrl: ''}
+    //return {};
   }
 
   generateFieldForm() {

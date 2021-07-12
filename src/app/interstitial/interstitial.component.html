@@ -1,0 +1,373 @@
+<div class="site__wrapper">
+  <style>
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Thin.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 100;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Light.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Regular.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Medium.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Bold.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-ExtraBold.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Black.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 900;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: capco-icon-fonts;
+      src: url(./assets/fonts/capco-icon-fonts.woff) format("woff");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap
+    }
+
+    body {
+      background-color: #f5f6f7;
+      font-family: Heebo, sans-serif;
+      color: #001928
+    }
+
+  </style>
+  <style>
+    /* Buttons
+========================================================================== */
+
+    .button-group {
+      margin: 20px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    a.button-offer,
+    span.button-offer {
+      border-radius: 32px;
+      width: 186px;
+      display: block;
+      padding: 16px;
+      border: 0;
+      font-family: "heebo";
+      letter-spacing: .3px;
+      line-height: 1.5;
+      font-size: 16px;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+
+    }
+
+    a.button-offer:hover {
+      border-color: #1a4d78;
+      color: #1a4d78;
+      text-decoration: none;
+    }
+
+    a.button-offer:focus,
+    a.button-offer:active {
+      border-color: #1a4d78;
+      color: #1a4d78;
+      text-decoration: none;
+      outline: 0;
+    }
+
+    a.button-offer.disabled {
+      border-color: #99c9e6;
+      color: #99c9e6;
+      cursor: default;
+    }
+
+    a.button-offer.primary,
+    span.button-offer.primary {
+      background-color: #0075BE;
+      color: #ffffff;
+    }
+
+    a.button-offer.primary:hover {
+      border-color: #1a4d78;
+      background-color: #1a4d78;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    a.button-offer.primary:focus,
+    a.button-offer.primary:active {
+      border-color: #1a4d78;
+      background-color: #1a4d78;
+      color: #ffffff;
+      text-decoration: none;
+      outline: 0;
+    }
+
+    a.button-offer.primary.disabled {
+      border-color: #99c9e6;
+      background-color: #99c9e6;
+      color: #efefef;
+    }
+
+    a.button-offer.secondary,
+    span.button-offer.secondary {
+      background-color: transparent;
+      color: #0070c1;
+    }
+
+    a.button-offer.secondary:hover {
+      background-color: transparent;
+      color: #1a4d78;
+      text-decoration: underline;
+    }
+
+    a.button-offer.secondary:focus,
+    a.button-offer.secondary:active {
+
+      background-color: transparent;
+      color: 1a4d78;
+      text-decoration: none;
+      outline: 0;
+    }
+
+    a.button-offer.secondary.disabled {
+      background-color: transparent;
+      color: #efefef;
+    }
+
+
+
+    @media (max-width: 767px) {
+
+      .button-group {
+        flex-direction: column;
+        margin: 16px 0 0;
+      }
+
+      a.button-offer,
+      span.button-offer {
+        margin: 4px auto 0 !important;
+      }
+    }
+
+  </style>
+  <style>
+    .site-content-block,
+    .site__wrapper,
+    .site__container {
+      display: flex;
+    }
+
+    .site__container {
+      flex-basis: 1026px;
+      margin: auto;
+      min-height: 600px;
+    }
+
+    @media (max-width: 767px) {
+      .site__container {
+        flex-direction: column;
+        flex-basis: auto;
+        margin: 0;
+      }
+    }
+
+    .site__container .site__banner,
+    .site__container .site-content-block {
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+
+    .site__container .site__banner {
+      max-height: 600px;
+      background-color: #dcdcdc;
+    }
+
+    @media (max-width: 767px) {
+      .site__container .site__banner {
+        max-height: 200px;
+      }
+    }
+
+    .site__container .site__banner img {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width: 767px) {
+      .site__container .site__banner .web {
+        display: none;
+      }
+    }
+
+    @media (min-width: 767px) {
+      .site__container .site__banner .mobile {
+        display: none;
+      }
+    }
+
+    .site__container .site-content-block .site-content-spacing {
+      margin: 2rem 4rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 767px) {
+      .site__container .site-content-block .site-content-spacing {
+        margin: 0 16px 16px;
+      }
+    }
+
+    .site__container .site-content-block .site-content-spacing .heading {
+      font-size: 2.25rem;
+      line-height: 2rem;
+      letter-spacing: -0.0125rem;
+      font-weight: 300;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 767px) {
+      .site__container .site-content-block .site-content-spacing .heading {
+        display: none;
+      }
+    }
+
+    .site__container .site-content-block .site-content-spacing .sub-heading {
+      font-size: 1.5rem;
+      line-height: 2rem;
+      letter-spacing: 0;
+      font-weight: 300;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 767px) {
+      .site__container .site-content-block .site-content-spacing .sub-heading {
+        margin-block-start: 10px;
+      }
+    }
+
+    .site__container .site-content-block .site-content-spacing .offer-help-text {
+      font-size: 0.875rem;
+      font-weight: 300;
+    }
+
+    @media (max-width: 767px) {
+      .site__container .site-content-block .site-content-spacing .offer-help-text {
+        margin-block-start: 0px;
+        padding-right: 4px;
+      }
+    }
+
+    .site__container .site-content-block .site-content-spacing .credit-limit {
+      margin: 0 auto;
+    }
+
+    @media (min-width: 767px) {
+      .site__container .site-content-block .site-content-spacing .credit-limit {
+        display: none;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .site__container .site-content-block .site-content-spacing .credit-limit h3 {
+        font-size: 20px;
+        position: relative;
+      }
+
+      .site__container .site-content-block .site-content-spacing .credit-limit h3:after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 0;
+        right: 0;
+        border-top: 1px solid #cacaca;
+      }
+    }
+
+  </style>
+  <style>
+    /* Styles for offer-details block */
+    .offer-details {
+      font-size: 1.25rem;
+      font-weight: 300;
+      line-height: 1.5;
+      flex-grow: 2;
+    }
+
+    @media (max-width: 767px) {
+      .offer-details {
+        font-size: 16px;
+      }
+    }
+
+  </style>
+
+  <div class="site__container">
+    <section class="site__banner">
+      <img class="mobile" src="/assets/img/sample-mobile.jpeg" alt="banner-img">
+      <img class="web" src="/assets/img/sample-web.jpeg" alt="banner-img">
+    </section>
+    <section class="site-content-block">
+      <div class="site-content-spacing">
+        <h2 class="heading">Congratulations !!!</h2>
+        <h4 class="sub-heading">Hi Jacqueline, good news!</h4>
+        <p class="offer-details">
+          We can raise your credit limit upto <b>$12,000</b> Marius sagittis ipsum mi, vel finibus turpis aliqum et.
+        </p>
+        <div class="credit-limit">
+          <h3>$12,000 Credit Limit</h3>
+        </div>
+        <div>
+          <div class="button-group">
+            <a data-cta-name="accept" href="javascript:void(0);" id="transferBtn"
+              class="button-offer primary">Accept</a>
+            <a data-cta-name="accept" href="javascript:void(0);" id="transferBtn" class="button-offer secondary">Remind
+              me later</a>
+          </div>
+          <p></p>
+        </div>
+        <p class="offer-help-text">
+          This offer can also be accessed by viewing "Your Offers" page in the main menu till May 01, 2021.
+        </p>
+      </div>
+    </section>
+  </div>
+</div>
