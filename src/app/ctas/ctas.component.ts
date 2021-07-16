@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, Input, OnChanges, OnInit } from '@angular/core';
-import { ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
-import { CtaDefinition } from '../offer/offer.service';
+import {AfterViewInit, Component, Input, OnChanges, OnInit} from '@angular/core';
+import {ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR, Validators} from '@angular/forms';
+import {CtaDefinition} from '../offer/offer.service';
 
 @Component({
   selector: 'app-ctas',
@@ -20,9 +20,25 @@ export class CtasComponent implements OnInit, AfterViewInit, ControlValueAccesso
   onTouched: boolean;
   ctasForm: FormGroup = new FormGroup({});
   showForm = false;
-  ctaTypes = [{ label: 'Please select a value', value: '' }, { label: 'Internal', value: 'internal' }, { label: 'External', value: 'external' }, { label: 'SSO', value: 'sso' }];
-  ctaActions = [{ label: 'Please select a value', value: '' }, { label: 'Accept', value: 'accept' }, { label: 'Reject', value: 'reject' }, { label: 'Later', value: 'later' }];
-  responseCodes = [{ label: 'Please select a value', value: '' }, { label: 'ABC', value: 'abc' }, { label: 'DEF', value: 'def' }, { label: 'FGH', value: 'fgh' }];
+  ctaTypes = [{label: 'Please select a value', value: ''}, {label: 'Internal', value: 'internal'}, {
+    label: 'External',
+    value: 'external'
+  }, {label: 'SSO', value: 'sso'}];
+  responseCodes = [
+    {label: 'Please select a value', value: ''},
+    {label: 'LogContact', value: 'LogContact'},
+    {label: 'LogAcceptFulfill', value: 'LogAcceptFulfill'},
+    {label: 'LogCreateReferral', value: 'LogCreateReferral'},
+    {label: 'LogAcceptAppointment', value: 'LogAcceptAppointment'},
+    {label: 'LogReject', value: 'LogReject'},
+    {label: 'LogFollowUp', value: 'LogFollowUp'},
+    {label: 'LogClicked', value: 'LogClicked'},
+    {label: 'LogFulfilledSales', value: 'LogFulfilledSales'},
+    {label: 'LogFulfilledService', value: 'LogFulfilledService'},
+    {label: 'LogFulfilledOther', value: 'LogFulfilledOther'},
+    {label: 'LogFulfilledRedirect', value: 'LogFulfilledRedirect'},
+    {label: 'LogApplicationStart', value: 'LogApplicationStart'},
+  ];
 
   constructor() {
   }
@@ -31,8 +47,6 @@ export class CtasComponent implements OnInit, AfterViewInit, ControlValueAccesso
     this.ctasForm.addControl('ctaLmeResponseCode',
       new FormControl(this.ctaValue && this.ctaValue.ctaLmeResponseCode ? this.ctaValue.ctaLmeResponseCode : '',
         [Validators.required]));
-    this.ctasForm.addControl('ctaAction', new FormControl(this.ctaValue && this.ctaValue.ctaAction ? this.ctaValue.ctaAction : '',
-      [Validators.required]));
     this.ctasForm.addControl('ctaType', new FormControl(this.ctaValue && this.ctaValue.ctaType ? this.ctaValue.ctaType : '',
       [Validators.required]));
     this.ctasForm.addControl('ctaUrl', new FormControl(this.ctaValue && this.ctaValue.ctaUrl ? this.ctaValue.ctaUrl : '',

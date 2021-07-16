@@ -22,7 +22,7 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
   previousFormValue: any;
   previousCtaFormValue: any;
   updatedFieldName: string;
-  mobilePreview = false;
+  mobilePreview = true;
 
   unsubscribeAll: Subject<boolean> = new Subject<boolean>();
 
@@ -60,7 +60,7 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
           });
       });
     setTimeout(() => {
-      this.selectOfferForm.get('offer').setValue('BAL_TRANSFER');
+      this.selectOfferForm.get('offer').setValue('INTERSTITIAL');
     });
   }
 
@@ -76,8 +76,8 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
 
   setValueForCtaForm(): any {
     // edit more, pass values like this:
-     return {ctaLmeResponseCode: '', ctaAction: '', ctaType: '', ctaUrl: ''}
-    //return {};
+    return {ctaLmeResponseCode: '', ctaAction: '', ctaType: '', ctaUrl: ''};
+    // return {};
   }
 
   generateFieldForm() {

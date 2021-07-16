@@ -1,5 +1,8 @@
 .cols {
   display: flex;
+  &.forceRow {
+    flex-direction: column-reverse;
+  }
 
   > * {
     margin: 1rem;
