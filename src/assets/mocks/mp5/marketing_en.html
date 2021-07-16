@@ -79,25 +79,25 @@
       .button-group {
         margin: 20px 0;
         display: flex;
-        justify-content: space-between;
       }
 
       a.button-offer,
       span.button-offer {
         border-radius: 32px;
-        width: 186px;
+        min-height: 55px;
+        min-width: 160px;
         display: block;
         padding: 16px;
         border: 0;
         font-family: "heebo";
         letter-spacing: .3px;
-        line-height: 1.5;
-        font-size: 16px;
+        line-height: 2;
+        font-size: 14px;
         text-align: center;
         text-transform: uppercase;
         text-decoration: none;
-        font-weight: 500;
-
+        font-weight: 600;
+        margin-right: 10px;
       }
 
       a.button-offer:hover {
@@ -177,16 +177,20 @@
       @media (max-width: 767px) {
         .button-group {
           flex-direction: column;
-          margin: 16px 0 0;
+          margin: 1rem 0 0;
         }
 
         a.button-offer,
         span.button-offer {
-          margin: 4px auto 0 !important;
+          margin: 0.5rem auto 0 !important;
+          min-width: 140px;
+          min-height: 28px;
         }
+
       }
 
     </style>
+
     <!--  DO NOT EDIT Layout styles-->
     <style>
       .site-content-block,
@@ -198,12 +202,11 @@
       .site__container {
         flex-basis: 1026px;
         margin: auto;
-        min-height: 600px;
+        flex-direction: column;
       }
 
       @media (max-width: 767px) {
         .site__container {
-          flex-direction: column;
           flex-basis: auto;
           margin: 0;
         }
@@ -216,8 +219,9 @@
       }
 
       .site__container .site__banner {
-        max-height: 600px;
+        height: 292px;
         background-color: #dcdcdc;
+        max-height: 292px;
       }
 
       @media (max-width: 767px) {
@@ -228,7 +232,7 @@
 
       .site__container .site__banner img {
         width: 100%;
-        /* height: 100%; */
+        height: 100%;
       }
 
       @media (max-width: 767px) {
@@ -243,129 +247,92 @@
         }
       }
 
+      .site__container .site-content-block {
+        background-color: #fff;
+      }
+
       .site__container .site-content-block .site-content-spacing {
-        margin: 2rem 4rem 1.2rem;
+        margin: 0 6rem 2.8rem 5rem;
         display: flex;
         flex-direction: column;
       }
 
       @media (max-width: 767px) {
         .site__container .site-content-block .site-content-spacing {
-          margin: 0 16px 16px;
+          margin: 0 1rem 4rem;
         }
       }
 
       .site__container .site-content-block .site-content-spacing .heading {
-        font-size: 2.25rem;
+        font-size: 1.75rem;
         line-height: 2rem;
         letter-spacing: -0.0125rem;
         font-weight: 300;
         margin-bottom: 0;
-      }
-
-      @media (max-width: 767px) {
-        .site__container .site-content-block .site-content-spacing .heading {
-          display: none;
-        }
-      }
-
-      .site__container .site-content-block .site-content-spacing .sub-heading {
-        font-size: 1.5rem;
-        line-height: 2rem;
-        letter-spacing: 0;
-        font-weight: 300;
-        margin-bottom: 0;
-      }
-
-      @media (max-width: 767px) {
-        .site__container .site-content-block .site-content-spacing .sub-heading {
-          margin-block-start: 10px;
-        }
+        margin-top: 1.5rem;
       }
 
       .site__container .site-content-block .site-content-spacing .offer-help-text {
         font-size: 0.875rem;
-        font-weight: 300;
+        font-weight: 400;
+        margin-top: 2.15rem;
       }
 
       @media (max-width: 767px) {
         .site__container .site-content-block .site-content-spacing .offer-help-text {
           margin-block-start: 0px;
           padding-right: 4px;
-        }
-      }
-
-      .site__container .site-content-block .site-content-spacing .credit-limit {
-        margin: 0 auto;
-      }
-
-      @media (min-width: 767px) {
-        .site__container .site-content-block .site-content-spacing .credit-limit {
-          display: none;
-        }
-      }
-
-      @media (max-width: 767px) {
-        .site__container .site-content-block .site-content-spacing .credit-limit h3 {
-          font-size: 20px;
-          position: relative;
-        }
-
-        .site__container .site-content-block .site-content-spacing .credit-limit h3:after {
-          content: "";
-          position: absolute;
-          bottom: -12px;
-          left: 0;
-          right: 0;
-          border-top: 1px solid #cacaca;
+          font-size: 0.875rem;
+          margin-top: 1.625rem;
         }
       }
 
     </style>
+
     <!-- Editable styles for offer-details block-->
     <style>
-
       .offer-details {
-        font-size: 1.25rem;
-        font-weight: 300;
+        font-size: 1.133rem;
+        font-weight: 400;
         line-height: 1.5;
-        flex-grow: 2;
+        margin: 0.875rem 0 1.25rem;
       }
 
       @media (max-width: 767px) {
         .offer-details {
-          font-size: 16px;
+          font-size: 1rem;
         }
       }
 
     </style>
+    
     <section class="site__banner">
-      <img class="mobile" src="/assets/img/sample-mobile.jpeg" alt="banner-img">
-      <img class="web" src="/assets/img/sample-web.jpeg" alt="banner-img">
+      <img class="mobile" src="/assets/img/marketing-mobile.jpeg" alt="banner-img">
+      <img class="web" src="/assets/img/marketing-web.jpeg" alt="banner-img">
     </section>
     <section class="site-content-block">
       <div class="site-content-spacing">
-        <h2 class="heading">Congratulations !!!</h2>
-        <h4 class="sub-heading">Hi [[$customer-name_TXT]], good news!</h4>
+        <h2 class="heading">[[heading_TXT]]</h2>
         <p class="offer-details">
-          We can raise your credit limit upto <b>[[credit-limit_NUM_CUR]]</b> Marius sagittis ipsum mi, vel finibus
-          turpis aliqum et.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae metus leo. Cras faucibus, odio vel
+          auctor facilisis, elit purus ullamcorper felis, volutpat malesuada massa nulla id nisl. Suspendisse a eu
+          lacinia velit.
+          <br />
+          <br />
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae metus leo. Cras faucibus, odio vel
+          auctor facilisis, elit purus ullamcorper felis, volutpat malesuada massa nulla id nisl. Suspendisse a eu
+          lacinia velit.
         </p>
-        <div class="credit-limit">
-          <h3>[[credit-limit_NUM_CUR]] Credit Limit</h3>
-        </div>
-        <div>
-          <div class="button-group">
-            <a data-cta-name="accept" href="javascript:void(0);" id="accept"
-               class="button-offer primary">Accept</a>
-            <a data-cta-name="remind-me-later" href="javascript:void(0);" id="remind-me-later"
-               class="button-offer secondary">Remind
-              me later</a>
-          </div>
-          <p></p>
+        <div class="button-group">
+          <a data-cta-name="get-started" href="javascript:void(0);" id="get-started" class="button-offer primary">Get
+            started</a>
+          <a data-cta-name="remind-me-later" href="javascript:void(0);" id="remind-me-later"
+            class="button-offer secondary">Remind
+            me later</a>
         </div>
         <p class="offer-help-text">
-          This offer can also be accessed by viewing <a href="https://www.bmo.com">"Your Offers"</a> page in the main menu till May 01, 2021.
+          This offer can also be accessed by viewing "Your Offers" page in the main
+          menu till May 01, 2021.
         </p>
       </div>
     </section>
