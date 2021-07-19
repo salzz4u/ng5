@@ -50,6 +50,9 @@ export enum offerContentPath {
   'CREDIT_LIMIT' = '/assets/mocks/mp2/credit-limit_inter_en.html',
   'BAL_TRANSFER' = '/assets/mocks/mp3/balanceTransfer_inter_en.html',
   'INTERSTITIAL' = '/assets/mocks/mp4/interstitial_en.html',
+  'MARKETING'= '/assets/mocks/mp5/marketing_en.html',
+  'PRE-APPROVED-OFFER'= '/assets/mocks/mp6/pre-approved-offer_en.html',
+  'OTHER-OFFER'= '/assets/mocks/mp7/other-offer_en.html',
 }
 
 enum offerWrapper {
@@ -57,6 +60,9 @@ enum offerWrapper {
   'CREDIT_LIMIT' = '.site__wrapper',
   'BAL_TRANSFER' = '.site__wrapper',
   'INTERSTITIAL' = '.site__wrapper',
+  'MARKETING'= '.site__wrapper',
+  'PRE-APPROVED-OFFER'= '.site__wrapper',
+  'OTHER-OFFER'= '.site__wrapper',
 }
 
 export const objDiffKey = (o1, o2) => {

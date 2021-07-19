@@ -1,0 +1,253 @@
+<div class="site__wrapper">
+  <!--  DO NOT EDIT Font styles-->
+  <style>
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Thin.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 100;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Light.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Regular.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Medium.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Bold.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-ExtraBold.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Heebo;
+      src: url(./assets/fonts/Heebo-Black.woff2) format("woff2");
+      font-style: normal;
+      font-weight: 900;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: capco-icon-fonts;
+      src: url(./assets/fonts/capco-icon-fonts.woff) format("woff");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap
+    }
+
+    body {
+      background-color: #f5f6f7;
+      font-family: Heebo, sans-serif;
+      color: #001928
+    }
+
+  </style>
+
+  <div class="card">
+
+    <!--  DO NOT EDIT Button styles-->
+    <style>
+      .button-group {
+        display: flex;
+      }
+
+      a.button-offer,
+      span.button-offer {
+        border-radius: 32px;
+        display: block;
+        padding: 16px 0;
+        border: 0;
+        font-family: Heebo, sans-serif;
+        letter-spacing: .3px;
+        line-height: 0.5;
+        font-size: 14px;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      a.button-offer:hover {
+        border-color: #1a4d78;
+        color: #1a4d78;
+        text-decoration: none;
+      }
+
+      a.button-offer:focus,
+      a.button-offer:active {
+        border-color: #1a4d78;
+        color: #1a4d78;
+        text-decoration: none;
+        outline: 0;
+      }
+
+      a.button-offer.disabled {
+        border-color: #99c9e6;
+        color: #99c9e6;
+        cursor: default;
+      }
+
+      a.button-offer.primary,
+      span.button-offer.primary {
+        background-color: #0075BE;
+        color: #ffffff;
+      }
+
+      a.button-offer.primary:hover {
+        border-color: #1a4d78;
+        background-color: #1a4d78;
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      a.button-offer.primary:focus,
+      a.button-offer.primary:active {
+        border-color: #1a4d78;
+        background-color: #1a4d78;
+        color: #ffffff;
+        text-decoration: none;
+        outline: 0;
+      }
+
+      a.button-offer.primary.disabled {
+        border-color: #99c9e6;
+        background-color: #99c9e6;
+        color: #efefef;
+      }
+
+      a.button-offer.secondary,
+      span.button-offer.secondary {
+        background-color: transparent;
+        color: #0070c1;
+      }
+
+      a.button-offer.secondary:hover {
+        background-color: transparent;
+        color: #1a4d78;
+        text-decoration: underline;
+      }
+
+      a.button-offer.secondary:focus,
+      a.button-offer.secondary:active {
+        background-color: transparent;
+        color: #1a4d78;
+        text-decoration: none;
+        outline: 0;
+      }
+
+      a.button-offer.secondary.disabled {
+        background-color: transparent;
+        color: #efefef;
+      }
+
+    </style>
+
+    <!--  DO NOT EDIT Layout styles-->
+    <style>
+      .site__wrapper {
+        display: flex;
+      }
+
+      .card {
+        flex-basis: 572px;
+        padding: 10px 20px 4px 20px;
+        box-shadow: 3px 0 20px rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 3px 3px;
+        border-top: 4px solid #0375bd;
+        position: relative;
+        display: flex;
+      }
+
+      @media (max-width: 767px) {
+        .card {
+          flex-basis: auto;
+        }
+      }
+
+      .card .heading {
+        font-size: 1.125rem;
+        line-height: 2rem;
+        letter-spacing: 0;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .card .content-wrapper {
+        padding: 0 1rem;
+      }
+
+      @media (max-width: 767px) {
+        .card .content-wrapper {
+          padding: 0 0.5rem;
+        }
+      }
+
+    </style>
+
+    <!-- Editable styles for offer-details block-->
+    <style>
+      .offer-description {
+        font-size: 1.125rem;
+        line-height: 2rem;
+        letter-spacing: 0;
+        font-weight: 300;
+        margin-block-start: 0;
+        margin-block-end: 0;
+      }
+
+      @media (max-width: 767px) {
+        .offer-description {
+          font-size: 1rem;
+        }
+      }
+
+    </style>
+    
+    <div class="icon-wrapper">
+      <img class="icon" src="/assets/img/money-icon.png" alt="icon-img">
+    </div>
+    <div class="content-wrapper">
+      <h3 class="heading">Smart Savings Account.</h3>
+      <p class="offer-description">
+        Receive a guarenteed <b>[[credit_INT_CUR]]</b> when you open another chequing account.
+      </p>
+      <div>
+        <div class="button-group">
+          <a data-cta-name="learn-more" href="javascript:void(0);" id="learn-more" class="button-offer secondary">Learn
+            More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
