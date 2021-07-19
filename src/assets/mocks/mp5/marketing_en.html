@@ -84,14 +84,13 @@
       a.button-offer,
       span.button-offer {
         border-radius: 32px;
-        min-height: 55px;
         min-width: 160px;
         display: block;
         padding: 16px;
         border: 0;
-        font-family: "heebo";
+        font-family: Heebo, sans-serif;
         letter-spacing: .3px;
-        line-height: 2;
+        line-height: 1.7;
         font-size: 14px;
         text-align: center;
         text-transform: uppercase;
@@ -184,7 +183,6 @@
         span.button-offer {
           margin: 0.5rem auto 0 !important;
           min-width: 140px;
-          min-height: 28px;
         }
 
       }
@@ -219,14 +217,15 @@
       }
 
       .site__container .site__banner {
-        height: 292px;
         background-color: #dcdcdc;
         max-height: 292px;
+        min-height: 292px;
       }
 
       @media (max-width: 767px) {
         .site__container .site__banner {
           max-height: 200px;
+          min-height: 200px;
         }
       }
 
