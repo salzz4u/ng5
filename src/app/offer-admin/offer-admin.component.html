@@ -3,8 +3,8 @@
     <label for="offer">Choose an offer:</label>
     <select formControlName="offer" name="offer" id="offer">
       <option value="NONE">Select an offer</option>
-      <option value="CREDIT_LIMIT">CREDIT_LIMIT</option>
-      <option value="BAL_TRANSFER">BAL_TRANSFER</option>
+      <!-- <option value="CREDIT_LIMIT">CREDIT_LIMIT</option>
+      <option value="BAL_TRANSFER">BAL_TRANSFER</option> -->
       <option value="INTERSTITIAL">INTERSTITIAL</option>
       <option value="MARKETING">MARKETING</option>
       <option value="PRE-APPROVED-OFFER">PRE-APPROVED OFFER</option>
@@ -34,7 +34,7 @@
           [formControlName]="ctrl.formControlName" [id]="'ctaForm' + i"></app-ctas>
       </div>
     </div>
-<!--    <p>{{ ctaForm.value | json }}</p>-->
+   <p>Form valueeeeeeeeee {{ ctaForm.value | json }}</p>
   </div>
   <div [ngClass]="{ 'full-width': previewOn }">
     <app-offer
