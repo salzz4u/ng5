@@ -358,6 +358,14 @@
           <div class="button-group">
             <a data-cta-name="Marketing" href="javascript:void(0);" id="accept"
                class="button-offer primary">Accept</a>
+            <a data-cta-name="apply-now" data-product-id="ASDAD3344" data-product-type="CHECKING" href="javascript:void(0);" id="apply-now"
+               class="button-offer secondary">Remind
+              me later</a>
+<!--
+if data-product-id and data-product-type is present and not empty, then this cta type should be set "SSO"
+    show hint containing "product id: {{data-product-id}}, product type: {{data-product-type}}"
+if either of these two are missing or empty, show inline error saying "invalid SSO details in template"
+-->
             <a data-cta-name="remind-me-later" href="javascript:void(0);" id="remind-me-later"
                class="button-offer secondary">Remind
               me later</a>
