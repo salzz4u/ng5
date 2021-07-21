@@ -17,7 +17,6 @@ export interface OfferDefinition {
 export interface CtaDefinition {
   ctaLmeResponseCode: string;
   ctaType: string;
-  ctaAction: string;
   ctaUrl: string;
 }
 
@@ -197,7 +196,7 @@ export class OfferService {
         formatedValue = this.datePipe.transform(value, 'MMM dd, yyyy');
         break;
       case 'CUR':
-        formatedValue = this.currencyPipe.transform(value, '', true, '1.0-0');
+        formatedValue = this.currencyPipe.transform(value, '', 'symbol-narrow', '1.0-0');
         break;
       case 'INT':
         formatedValue = this.decimalPipe.transform(value);

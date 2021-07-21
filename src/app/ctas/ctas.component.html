@@ -3,22 +3,23 @@
     <label [for]="ctaName + 'ctaLmeResponseCode'">Response Code</label>
     <select [name]="ctaName + 'ctaLmeResponseCode'" formControlName="ctaLmeResponseCode" id="ctaLmeResponseCode">
       <ng-container *ngFor="let responseCode of responseCodes">
-        <option [value]="responseCode?.value">{{responseCode?.label}}</option>
+        <option [disabled]="disableDropdown" [value]="responseCode?.value">{{responseCode?.label}}</option>
       </ng-container>
     </select>
   </div>
-  <div class="form-control">
+  <div class="form-control" *ngIf="!hideCtaType">
     <label [for]="ctaName + 'ctaType'">Type</label>
     <select [name]="ctaName + 'ctaType'" formControlName="ctaType" id="ctaType">
       <ng-container *ngFor="let cta of ctaTypes">
-        <option [value]="cta?.value">{{cta?.label}}</option>
+        <option [disabled]="disableDropdown" [value]="cta?.value">{{cta?.label}}</option>
       </ng-container>
     </select>
   </div>
-  <div class="form-control">
+  <div class="form-control" *ngIf="!hideCtaUrl">
     <label [for]="ctaName + 'ctaUrl'">Url</label>
     <input [name]="ctaName + 'ctaUrl'" type="text" formControlName="ctaUrl">
   </div>
 </div>
 
-<!--<div>Form value: {{ctasForm.value | json}}</div>-->
+<div>Form value: {{ctasForm.value | json}}</div>
+<pre>{{ctasForm.valid}}</pre>
