@@ -49,6 +49,8 @@ export interface OfferFormControlMeta {
 export interface OfferCtaFormControlMeta {
   formControlName: string;
   formControlType: string;
+  productId: string;
+  productCode: string;
 }
 
 export enum offerContentPath {
@@ -86,6 +88,8 @@ export const objDiffKey = (o1, o2) => {
 
 @Injectable()
 export class OfferService {
+  offerCtas: NodeListOf<HTMLAnchorElement>;
+
   constructor(
     private http: HttpClient,
     private sanitizer: DomSanitizer,
@@ -103,6 +107,10 @@ export class OfferService {
         const template = offerContentHtml.querySelector(offerWrapper[id]);
         const scripts = Array.from(offerContentHtml.querySelectorAll('script[data-name="bdb"]'));
         const styles = Array.from(offerContentHtml.querySelectorAll('style[data-name="bdb"]'));
+        this.offerCtas = offerContentHtml.querySelectorAll('a');
+        Array.from(this.offerCtas).map(cta => {
+          console.log(cta.hasAttribute('data-product-id'),  cta.attributes);
+        });
         if (scripts.length > 0) {
           scripts.forEach((script) => template.prepend(script));
         }
@@ -148,6 +156,7 @@ export class OfferService {
       const ctaFormControlMeta = {} as OfferCtaFormControlMeta;
       ctaFormControlMeta.formControlName = ctrlName.split('_')[0];
       ctaFormControlMeta.formControlType = 'STR';
+      // ctaFormControlMeta.productId =
       ctaFormControlMetaArray.push(ctaFormControlMeta);
     });
 
