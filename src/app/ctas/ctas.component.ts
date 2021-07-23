@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, Input, OnChanges, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 import { CtaDefinition, ctaProductInfo } from '../offer/offer.service';
-import { ChangeDetectorRef } from '@angular/core';
 
 enum CtaResponseCodes {
   'LOG_REJECT' = 'LogReject',
@@ -67,7 +66,7 @@ export class CtasComponent implements OnInit, AfterViewInit, ControlValueAccesso
     { label: 'LogApplicationStart', value: 'LogApplicationStart' },
   ];
 
-  constructor(private cdr: ChangeDetectorRef) {
+  constructor() {
   }
 
   ngOnInit() {
