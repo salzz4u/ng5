@@ -3,12 +3,14 @@ import {
   Component,
   ComponentFactoryResolver,
   ComponentRef,
-  ElementRef, Input, OnChanges,
-  OnInit, SimpleChanges,
+  ElementRef,
+  Input,
+  OnChanges,
+  SimpleChanges,
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { OfferDefinition, OfferService } from '../../offer/offer.service';
+import {OfferDefinition, OfferService} from '../../offer/offer.service';
 import {OfferComponent} from '../../offer/offer.component';
 
 @Component({

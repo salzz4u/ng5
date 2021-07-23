@@ -1,5 +1,6 @@
 .cols {
   display: flex;
+
   &.forceRow {
     flex-direction: column-reverse;
   }
@@ -9,6 +10,7 @@
     flex-basis: 50%;
     flex-grow: 0;
   }
+
   > .full-width {
     flex-basis: 100%;
   }

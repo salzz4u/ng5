@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { routes } from '../app-routing.module';
+import {Component, OnInit} from '@angular/core';
+import {routes} from '../app-routing.module';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +16,9 @@ export class HeaderComponent implements OnInit {
       return check;
     });
 
-  constructor() {}
+  constructor() {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }

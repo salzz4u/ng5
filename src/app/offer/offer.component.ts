@@ -16,20 +16,21 @@ export class OfferComponent implements OnChanges {
 
   offerParsed: any;
 
-  constructor(public sanitizer: DomSanitizer, private offerService: OfferService) {}
+  constructor(public sanitizer: DomSanitizer, private offerService: OfferService) {
+  }
 
   ngOnChanges() {
     this.offerParsed = this.sanitizer.bypassSecurityTrustHtml(
       this.offerService.offerParser(this.offerContent, this.offerDefinition, this.updatedFieldName)
     );
-   setTimeout(() => {
-     const parentElement = this.content.nativeElement;
-     const accept: HTMLElement = parentElement.querySelector('.accept');
-     // console.log(accept);
-     if (accept) {
-       accept.addEventListener('click', (e) => this.handleResponse(accept, e, 'accept'));
-     }
-   });
+    setTimeout(() => {
+      const parentElement = this.content.nativeElement;
+      const accept: HTMLElement = parentElement.querySelector('.accept');
+      // console.log(accept);
+      if (accept) {
+        accept.addEventListener('click', (e) => this.handleResponse(accept, e, 'accept'));
+      }
+    });
   }
 
   handleResponse(elem: HTMLElement, e, eventName: string) {

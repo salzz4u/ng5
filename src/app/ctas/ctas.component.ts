@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, Input, OnChanges, OnInit } from '@angular/core';
-import { ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
-import { CtaDefinition, ctaProductInfo } from '../offer/offer.service';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR, Validators} from '@angular/forms';
+import {CtaDefinition, CtaProductInfo} from '../offer/offer.service';
 
 enum CtaResponseCodes {
   'LOG_REJECT' = 'LogReject',
@@ -14,7 +14,7 @@ enum CtaType {
 }
 
 enum CtaName {
-  'APPLY_NOW' = "apply now",
+  'APPLY_NOW' = 'apply now',
 }
 
 @Component({
@@ -33,7 +33,7 @@ export class CtasComponent implements OnInit, AfterViewInit, ControlValueAccesso
   @Input() ctaName: string;
   @Input() ctaValue: CtaDefinition;
   @Input() formControlName: string;
-  @Input() ctaProductInfo: ctaProductInfo;
+  @Input() ctaProductInfo: CtaProductInfo;
   onTouched: boolean;
   ctasForm: FormGroup = new FormGroup({});
   ctaLmeResponseCode: FormControl;
@@ -45,25 +45,25 @@ export class CtasComponent implements OnInit, AfterViewInit, ControlValueAccesso
   hideCtaUrl = false;
   showSSOError = false;
   ctaTypes = [
-    { label: 'Please select a value', value: '' },
-    { label: 'Internal', value: 'internal' },
-    { label: 'External', value: 'external' },
-    { label: 'SSO', value: 'sso' },
+    {label: 'Please select a value', value: ''},
+    {label: 'Internal', value: 'internal'},
+    {label: 'External', value: 'external'},
+    {label: 'SSO', value: 'sso'},
   ];
   responseCodes = [
-    { label: 'Please select a value', value: '' },
-    { label: 'LogContact', value: 'LogContact' },
-    { label: 'LogAcceptFulfill', value: 'LogAcceptFulfill' },
-    { label: 'LogCreateReferral', value: 'LogCreateReferral' },
-    { label: 'LogAcceptAppointment', value: 'LogAcceptAppointment' },
-    { label: 'LogReject', value: 'LogReject' },
-    { label: 'LogFollowUp', value: 'LogFollowUp' },
-    { label: 'LogClicked', value: 'LogClicked' },
-    { label: 'LogFulfilledSales', value: 'LogFulfilledSales' },
-    { label: 'LogFulfilledService', value: 'LogFulfilledService' },
-    { label: 'LogFulfilledOther', value: 'LogFulfilledOther' },
-    { label: 'LogFulfilledRedirect', value: 'LogFulfilledRedirect' },
-    { label: 'LogApplicationStart', value: 'LogApplicationStart' },
+    {label: 'Please select a value', value: ''},
+    {label: 'LogContact', value: 'LogContact'},
+    {label: 'LogAcceptFulfill', value: 'LogAcceptFulfill'},
+    {label: 'LogCreateReferral', value: 'LogCreateReferral'},
+    {label: 'LogAcceptAppointment', value: 'LogAcceptAppointment'},
+    {label: 'LogReject', value: 'LogReject'},
+    {label: 'LogFollowUp', value: 'LogFollowUp'},
+    {label: 'LogClicked', value: 'LogClicked'},
+    {label: 'LogFulfilledSales', value: 'LogFulfilledSales'},
+    {label: 'LogFulfilledService', value: 'LogFulfilledService'},
+    {label: 'LogFulfilledOther', value: 'LogFulfilledOther'},
+    {label: 'LogFulfilledRedirect', value: 'LogFulfilledRedirect'},
+    {label: 'LogApplicationStart', value: 'LogApplicationStart'},
   ];
 
   constructor() {
@@ -80,12 +80,12 @@ export class CtasComponent implements OnInit, AfterViewInit, ControlValueAccesso
 
     // Setting the cta type to "SSO" if data-product-id and data-product-type is present and not empty
     if (this.formControlName === CtaName.APPLY_NOW && this.ctaProductInfo.ctaProductId && this.ctaProductInfo.ctaProductType) {
-      this.ctaType.setValue(CtaType.SSO)
+      this.ctaType.setValue(CtaType.SSO);
     }
 
-    // Setting the cta type to "SSO" and showing an error if either of data-product-id and data-product-type is not present 
+    // Setting the cta type to "SSO" and showing an error if either of data-product-id and data-product-type is not present
     if (this.formControlName === CtaName.APPLY_NOW && (!this.ctaProductInfo.ctaProductId || !this.ctaProductInfo.ctaProductType)) {
-      this.ctaType.setValue(CtaType.SSO)
+      this.ctaType.setValue(CtaType.SSO);
       this.showSSOError = true;
     }
   }
@@ -93,8 +93,8 @@ export class CtasComponent implements OnInit, AfterViewInit, ControlValueAccesso
   ngAfterViewInit() {
 
     if (this.formControlName === CtaType.MARKETING) {
-      this.ctaTypes.push({ label: CtaType.MARKETING, value: CtaType.MARKETING });
-      const ctaValue = { 'ctaLmeResponseCode': CtaResponseCodes.LOG_CLICKED, 'ctaType': CtaType.MARKETING, 'ctaUrl': '' };
+      this.ctaTypes.push({label: CtaType.MARKETING, value: CtaType.MARKETING});
+      const ctaValue = {'ctaLmeResponseCode': CtaResponseCodes.LOG_CLICKED, 'ctaType': CtaType.MARKETING, 'ctaUrl': ''};
       this.ctasForm.setValue(ctaValue);
       this.ctaType.disable();
       this.ctaLmeResponseCode.disable();
@@ -108,16 +108,16 @@ export class CtasComponent implements OnInit, AfterViewInit, ControlValueAccesso
     this.ctasForm.valueChanges.pipe().subscribe(value => {
       if (value && value.ctaLmeResponseCode === CtaResponseCodes.LOG_REJECT ||
         value.ctaLmeResponseCode === CtaResponseCodes.LOG_FOLLOW_UP) {
-        this.ctasForm.setErrors(null)
+        this.ctasForm.setErrors(null);
         this.hideCtaType = true;
         this.hideCtaUrl = true;
-        const ctaValue = { 'ctaLmeResponseCode': value.ctaLmeResponseCode, 'ctaType': '', 'ctaUrl': '' };
+        const ctaValue = {'ctaLmeResponseCode': value.ctaLmeResponseCode, 'ctaType': '', 'ctaUrl': ''};
         this.onChange(this.ctasForm.valid ? ctaValue : null);
       } else {
         this.hideCtaType = false;
         this.hideCtaUrl = false;
         if (!this.ctaType.value || !this.ctaUrl.value || !this.ctaLmeResponseCode.value) {
-          setTimeout(() => this.ctasForm.setErrors({ 'invalid': true }));
+          setTimeout(() => this.ctasForm.setErrors({'invalid': true}));
         }
         this.onChange(this.ctasForm.valid ? value : null);
       }

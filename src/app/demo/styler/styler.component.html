@@ -1,8 +1,9 @@
 <div class="site__wrapper">
   <style>
-    .site__main,  .site__wrapper,  .site__container, .main__wrapper{
+    .site__main, .site__wrapper, .site__container, .main__wrapper {
       display: flex;
     }
+
     .site__container {
       flex-basis: 600px;
       margin: auto;
@@ -11,30 +12,38 @@
     .site__main {
       padding: 0 20px;
     }
+
     .site__banner {
 
     }
+
     .columns {
       display: flex;
       width: 510px;
     }
+
     .columns h2 {
       margin-top: 0;
     }
+
     .panel p {
       text-align: center;
     }
+
     .panel p .big {
       font-size: 1.875rem;
     }
-    @media (max-width:767px) {
+
+    @media (max-width: 767px) {
       .site__container {
         flex-basis: auto;
         flex-direction: column;
       }
+
       .site__banner img {
         width: 100%;
       }
+
       .columns {
         flex-direction: column-reverse;
         width: 100%;
@@ -66,24 +75,53 @@
       overflow: hidden;
     }
 
-    a.button-offer:hover { border-color:#1a4d78; color:#1a4d78; text-decoration:none; }
+    a.button-offer:hover {
+      border-color: #1a4d78;
+      color: #1a4d78;
+      text-decoration: none;
+    }
 
     a.button-offer:focus,
+    a.button-offer:active {
+      border-color: #1a4d78;
+      color: #1a4d78;
+      text-decoration: none;
+      outline: 0;
+    }
 
-    a.button-offer:active { border-color:#1a4d78; color:#1a4d78; text-decoration:none; outline:0; }
-
-    a.button-offer.disabled { border-color:#99c9e6; color:#99c9e6; cursor:default; }
+    a.button-offer.disabled {
+      border-color: #99c9e6;
+      color: #99c9e6;
+      cursor: default;
+    }
 
     a.button-offer.primary,
-    span.button-offer.primary { background-color:#0075BE; color:#ffffff; }
+    span.button-offer.primary {
+      background-color: #0075BE;
+      color: #ffffff;
+    }
 
-    a.button-offer.primary:hover { border-color:#1a4d78; background-color:#1a4d78; color:#ffffff; text-decoration:none; }
+    a.button-offer.primary:hover {
+      border-color: #1a4d78;
+      background-color: #1a4d78;
+      color: #ffffff;
+      text-decoration: none;
+    }
 
     a.button-offer.primary:focus,
+    a.button-offer.primary:active {
+      border-color: #1a4d78;
+      background-color: #1a4d78;
+      color: #ffffff;
+      text-decoration: none;
+      outline: 0;
+    }
 
-    a.button-offer.primary:active { border-color:#1a4d78; background-color:#1a4d78; color:#ffffff; text-decoration:none; outline:0; }
-
-    a.button-offer.primary.disabled { border-color:#99c9e6; background-color:#99c9e6; color:#efefef; }
+    a.button-offer.primary.disabled {
+      border-color: #99c9e6;
+      background-color: #99c9e6;
+      color: #efefef;
+    }
 
     a.button-offer.attention,
     span.button-offer.attention {
@@ -91,22 +129,42 @@
       /* background-color:#ed1b24; */
       border-color: #E2121D;
       background-color: #E2121D;
-      color:#ffffff;
+      color: #ffffff;
     }
 
-    a.button-offer.attention:hover { border-color:#9b262c; background-color:#9b262c; color:#ffffff; text-decoration:none; }
+    a.button-offer.attention:hover {
+      border-color: #9b262c;
+      background-color: #9b262c;
+      color: #ffffff;
+      text-decoration: none;
+    }
 
     a.button-offer.attention:focus,
+    a.button-offer.attention:active {
+      border-color: #9b262c;
+      background-color: #9b262c;
+      color: #ffffff;
+      text-decoration: none;
+      outline: 0;
+    }
 
-    a.button-offer.attention:active { border-color:#9b262c; background-color:#9b262c; color:#ffffff; text-decoration:none; outline:0; }
-
-    a.button-offer.attention.disabled { border-color:#f8a3a7; background-color:#f8a3a7; color:#efefef; }
+    a.button-offer.attention.disabled {
+      border-color: #f8a3a7;
+      background-color: #f8a3a7;
+      color: #efefef;
+    }
 
     a.button-offer.small,
-    span.button-offer.small { height:34px; line-height:34px; }
+    span.button-offer.small {
+      height: 34px;
+      line-height: 34px;
+    }
 
     a.button-offer.wrap,
-    span.button-offer.wrap { padding:4px 30px; line-height:19px; }
+    span.button-offer.wrap {
+      padding: 4px 30px;
+      line-height: 19px;
+    }
 
     button + a.button-offer,
     button + span.button-offer,
@@ -115,14 +173,20 @@
     a.button-offer + span.button-offer,
     span.button-offer + button,
     span.button-offer + a.button-offer,
-    span.button-offer + span.button-offer { margin:0 0 0 1%; }
-    @media (max-width:767px) {
+    span.button-offer + span.button-offer {
+      margin: 0 0 0 1%;
+    }
+
+    @media (max-width: 767px) {
 
       a.button-offer,
       span.button-offer,
-
       a.button-offer.small,
-      span.button-offer.small { width:100%; height:50px; line-height:46px; }
+      span.button-offer.small {
+        width: 100%;
+        height: 50px;
+        line-height: 46px;
+      }
 
       button + a.button-offer,
       button + span.button-offer,
@@ -131,14 +195,20 @@
       a.button-offer + span.button-offer,
       span.button-offer + button,
       span.button-offer + a.button-offer,
-      span.button-offer + span.button-offer { margin:15px 0 0; }
+      span.button-offer + span.button-offer {
+        margin: 15px 0 0;
+      }
 
       p a.button-offer,
-      p span.button-offer { margin:15px 0 0; }
+      p span.button-offer {
+        margin: 15px 0 0;
+      }
     }
 
     a.button-offer.flush,
-    span.button-offer.flush { width:100%; }
+    span.button-offer.flush {
+      width: 100%;
+    }
   </style>
   <style>
     /*links*/
@@ -147,6 +217,7 @@
       line-height: 1.3em;
       text-decoration: none;
     }
+
     a.link-terms {
       display: block;
       font-size: 0.8rem;
@@ -154,8 +225,8 @@
     }
   </style>
   <div class="site__container">
-    <section class="site__banner"><img src="/assets/mocks/mp3/banner-en.jpg" alt="" /></section>
-    <section  class="site__main">
+    <section class="site__banner"><img src="/assets/mocks/mp3/banner-en.jpg" alt=""/></section>
+    <section class="site__main">
       <div class="main__wrapper">
         <div class="columns two has-panel">
           <div class="">
@@ -169,8 +240,10 @@
               Transfer balances to your BMO<sup>®</sup>&nbsp;credit card ending in
               <span id="RESERVED_6">[[card-ending-in_NUM_INT]]</span> by <span id="RELEVANT_DATE:1"></span>and pay only
               <span id="RATE:1">[[interest-rate_NUM_INT]]</span>% interest for up to
-              <span id="RESERVED_5:1">[[up-to-months_NUM_INT]] </span>months.* By consolidating your higher cost debt, you can pay
-              it off faster while saving money. A fee of <span id="RESERVED_7:1">[[fee-percent_NUM_INT]]</span>% of the balance amount you
+              <span id="RESERVED_5:1">[[up-to-months_NUM_INT]] </span>months.* By consolidating your higher cost debt,
+              you can pay
+              it off faster while saving money. A fee of <span id="RESERVED_7:1">[[fee-percent_NUM_INT]]</span>% of the
+              balance amount you
               are transferring applies.*
             </p>
             <p>
@@ -249,9 +322,10 @@
             >
               <p>
                 <strong
-                ><span class="big"><span id="RATE:2">[[interest-rate_NUM_DEC_MIN:0,MAX:3]]</span>%</span><br />for up to<br /><span class="big"
-                ><span id="RESERVED_5:2">[[up-to-months_NUM_INT]]</span> </span
-                >months</strong
+                ><span class="big"><span id="RATE:2">[[interest-rate_NUM_DEC_MIN:0,MAX:3]]</span>%</span><br/>for up
+                  to<br/><span class="big"
+                  ><span id="RESERVED_5:2">[[up-to-months_NUM_INT]]</span> </span
+                  >months</strong
                 >
               </p>
               <p>Transfer your credit card balances<strong>&nbsp;TODAY!</strong></p>
