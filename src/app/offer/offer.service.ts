@@ -33,6 +33,12 @@ export interface OfferAdminData {
   cmsData: CmsData;
   offerFormControlMetaArray: Array<OfferFormControlMeta>;
   offerCtaFormControlMetaArray: Array<OfferCtaFormControlMeta>;
+  ctaProductInfo: ctaProductInfo;
+}
+
+export interface ctaProductInfo{
+  ctaProductId: string;
+  ctaProductType: string;
 }
 
 export interface OfferFormControlMeta {
@@ -121,6 +127,9 @@ export class OfferService {
     const ctaFormControlMetaArray: Array<OfferCtaFormControlMeta> = [];
     const fieldMatches: Array<string> = cmsData.data.match(/(?<=\[\[).+?(?=\]\])/g);
     const ctaMatches: Array<string> = cmsData.data.match(/(?<=data-cta-name=").+?(?=\")/g);
+    const ctaProductId: string = cmsData.data.match(/(?<=data-product-id=").+?(?=\")/g) && (cmsData.data.match(/(?<=data-product-id=").+?(?=\")/g)).toString();
+    const ctaProductType: string = cmsData.data.match(/(?<=data-product-type=").+?(?=\")/g) && (cmsData.data.match(/(?<=data-product-type=").+?(?=\")/g)).toString();
+    const ctaProductInfo = {ctaProductId,ctaProductType };
     const uniqueFieldMatches: Array<string> = fieldMatches.filter(this.onlyUnique);
     const uniqueCtaMatches: Array<string> = ctaMatches.map(ctaName => ctaName.replace(/-/g, ' ')).filter(this.onlyUnique);
 
@@ -140,6 +149,7 @@ export class OfferService {
 
     offerAdminData.offerFormControlMetaArray = offerFormControlMetaArray;
     offerAdminData.offerCtaFormControlMetaArray = ctaFormControlMetaArray;
+    offerAdminData.ctaProductInfo = ctaProductInfo;
     return of(offerAdminData);
   }
 
