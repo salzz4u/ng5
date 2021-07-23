@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { StylerComponent } from './styler.component';
+import {StylerComponent} from './styler.component';
 
 describe('StylerComponent', () => {
   let component: StylerComponent;
@@ -8,9 +8,9 @@ describe('StylerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StylerComponent ]
+      declarations: [StylerComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

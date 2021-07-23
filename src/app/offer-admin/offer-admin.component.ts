@@ -1,5 +1,13 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
-import {CmsData, ctaProductInfo, objDiffKey, OfferCtaFormControlMeta, OfferDefinition, OfferFormControlMeta, OfferService} from '../offer/offer.service';
+import {
+  CmsData,
+  CtaProductInfo,
+  objDiffKey,
+  OfferCtaFormControlMeta,
+  OfferDefinition,
+  OfferFormControlMeta,
+  OfferService
+} from '../offer/offer.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {debounceTime, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs/Subject';
@@ -17,7 +25,7 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
   selectOfferForm = new FormGroup({});
   offerFormControlMetaArray: Array<OfferFormControlMeta>;
   offerCtaFormControlMetaArray: Array<OfferCtaFormControlMeta>;
-  ctaProductInfo: ctaProductInfo;
+  ctaProductInfo: CtaProductInfo;
   displayForm = false;
   previewOn = false;
   previousFormValue: any;

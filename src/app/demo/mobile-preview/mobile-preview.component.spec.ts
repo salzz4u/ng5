@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MobilePreviewComponent } from './mobile-preview.component';
+import {MobilePreviewComponent} from './mobile-preview.component';
 
 describe('MobilePreviewComponent', () => {
   let component: MobilePreviewComponent;
@@ -8,9 +8,9 @@ describe('MobilePreviewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MobilePreviewComponent ]
+      declarations: [MobilePreviewComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

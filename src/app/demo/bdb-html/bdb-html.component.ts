@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { OfferDefinition, OfferService } from '../../offer/offer.service';
+import {Component} from '@angular/core';
+import {OfferDefinition, OfferService} from '../../offer/offer.service';
 
 @Component({
   selector: 'app-bdb-html',

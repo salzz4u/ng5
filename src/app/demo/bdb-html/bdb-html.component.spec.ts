@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BdbHtmlComponent } from './bdb-html.component';
+import {BdbHtmlComponent} from './bdb-html.component';
 
 describe('BdbHtmlComponent', () => {
   let component: BdbHtmlComponent;

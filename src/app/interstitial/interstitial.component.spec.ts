@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { InterstitialComponent } from './interstitial.component';
+import {InterstitialComponent} from './interstitial.component';
 
 describe('InterstitialComponent', () => {
   let component: InterstitialComponent;
@@ -8,9 +8,9 @@ describe('InterstitialComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InterstitialComponent ]
+      declarations: [InterstitialComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

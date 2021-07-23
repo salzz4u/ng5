@@ -15,7 +15,7 @@
       </ng-container>
     </select>
     <p *ngIf="formControlName ===  'apply now' && ctaType.value === 'sso' && !showSSOError" class="hint-text">Product
-      id: {{ctaProductInfo?.ctaProductId}} <br /> Product type: {{ctaProductInfo?.ctaProductType}}</p>
+      id: {{ctaProductInfo?.ctaProductId}} <br/> Product type: {{ctaProductInfo?.ctaProductType}}</p>
     <p *ngIf="formControlName ===  'apply now' && ctaType.value === 'sso' && showSSOError" class="error-text">Invalid
       SSO details in template</p>
   </div>

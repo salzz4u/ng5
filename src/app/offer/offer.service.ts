@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map, switchMap } from 'rxjs/operators';
-import { DomSanitizer } from '@angular/platform-browser';
-import { CurrencyPipe, DatePipe, DecimalPipe } from '@angular/common';
-import { of } from 'rxjs/observable/of';
-import { Observable } from 'rxjs/Observable';
-import { adminStyle } from './offer.model';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {map, switchMap} from 'rxjs/operators';
+import {DomSanitizer} from '@angular/platform-browser';
+import {CurrencyPipe, DatePipe, DecimalPipe} from '@angular/common';
+import {of} from 'rxjs/observable/of';
+import {Observable} from 'rxjs/Observable';
+import {adminStyle} from './offer.model';
 
 export interface OfferDefinition {
   id: string;
@@ -33,10 +33,10 @@ export interface OfferAdminData {
   cmsData: CmsData;
   offerFormControlMetaArray: Array<OfferFormControlMeta>;
   offerCtaFormControlMetaArray: Array<OfferCtaFormControlMeta>;
-  ctaProductInfo: ctaProductInfo;
+  ctaProductInfo: CtaProductInfo;
 }
 
-export interface ctaProductInfo{
+export interface CtaProductInfo {
   ctaProductId: string;
   ctaProductType: string;
 }
@@ -45,9 +45,12 @@ export interface OfferFormControlMeta {
   formControlName: string;
   formControlType?: string;
 }
+
 export interface OfferCtaFormControlMeta {
   formControlName: string;
   formControlType: string;
+  productId: string;
+  productCode: string;
 }
 
 export enum offerContentPath {
@@ -55,9 +58,9 @@ export enum offerContentPath {
   'CREDIT_LIMIT' = '/assets/mocks/mp2/credit-limit_inter_en.html',
   'BAL_TRANSFER' = '/assets/mocks/mp3/balanceTransfer_inter_en.html',
   'INTERSTITIAL' = '/assets/mocks/mp4/interstitial_en.html',
-  'MARKETING'= '/assets/mocks/mp5/marketing_en.html',
-  'PRE-APPROVED-OFFER'= '/assets/mocks/mp6/pre-approved-offer_en.html',
-  'OTHER-OFFER'= '/assets/mocks/mp7/other-offer_en.html',
+  'MARKETING' = '/assets/mocks/mp5/marketing_en.html',
+  'PRE-APPROVED-OFFER' = '/assets/mocks/mp6/pre-approved-offer_en.html',
+  'OTHER-OFFER' = '/assets/mocks/mp7/other-offer_en.html',
 }
 
 enum offerWrapper {
@@ -65,9 +68,9 @@ enum offerWrapper {
   'CREDIT_LIMIT' = '.site__wrapper',
   'BAL_TRANSFER' = '.site__wrapper',
   'INTERSTITIAL' = '.site__wrapper',
-  'MARKETING'= '.site__wrapper',
-  'PRE-APPROVED-OFFER'= '.site__wrapper',
-  'OTHER-OFFER'= '.site__wrapper',
+  'MARKETING' = '.site__wrapper',
+  'PRE-APPROVED-OFFER' = '.site__wrapper',
+  'OTHER-OFFER' = '.site__wrapper',
 }
 
 export const objDiffKey = (o1, o2) => {
@@ -85,22 +88,29 @@ export const objDiffKey = (o1, o2) => {
 
 @Injectable()
 export class OfferService {
+  offerCtas: NodeListOf<HTMLAnchorElement>;
+
   constructor(
     private http: HttpClient,
     private sanitizer: DomSanitizer,
     private datePipe: DatePipe,
     private decimalPipe: DecimalPipe,
     private currencyPipe: CurrencyPipe
-  ) { }
+  ) {
+  }
 
   public getInterOfferFromAdmin(id: string): Observable<OfferAdminData> {
-    return this.http.request('GET', offerContentPath[id], { responseType: 'text' }).pipe(
+    return this.http.request('GET', offerContentPath[id], {responseType: 'text'}).pipe(
       map((html) => {
         let cmsData: CmsData;
         const offerContentHtml = this.convertTextToDom(html);
         const template = offerContentHtml.querySelector(offerWrapper[id]);
         const scripts = Array.from(offerContentHtml.querySelectorAll('script[data-name="bdb"]'));
         const styles = Array.from(offerContentHtml.querySelectorAll('style[data-name="bdb"]'));
+        this.offerCtas = offerContentHtml.querySelectorAll('a');
+        Array.from(this.offerCtas).map(cta => {
+          console.log(cta.hasAttribute('data-product-id'),  cta.attributes);
+        });
         if (scripts.length > 0) {
           scripts.forEach((script) => template.prepend(script));
         }
@@ -108,9 +118,9 @@ export class OfferService {
           styles.forEach((style) => template.prepend(style));
         }
         if (offerWrapper[id]) {
-          cmsData = { data: template.outerHTML };
+          cmsData = {data: template.outerHTML};
         } else {
-          cmsData = { data: html };
+          cmsData = {data: html};
         }
         return cmsData;
       }),
@@ -127,9 +137,11 @@ export class OfferService {
     const ctaFormControlMetaArray: Array<OfferCtaFormControlMeta> = [];
     const fieldMatches: Array<string> = cmsData.data.match(/(?<=\[\[).+?(?=\]\])/g);
     const ctaMatches: Array<string> = cmsData.data.match(/(?<=data-cta-name=").+?(?=\")/g);
-    const ctaProductId: string = cmsData.data.match(/(?<=data-product-id=").+?(?=\")/g) && (cmsData.data.match(/(?<=data-product-id=").+?(?=\")/g)).toString();
-    const ctaProductType: string = cmsData.data.match(/(?<=data-product-type=").+?(?=\")/g) && (cmsData.data.match(/(?<=data-product-type=").+?(?=\")/g)).toString();
-    const ctaProductInfo = {ctaProductId,ctaProductType };
+    const ctaProductId: string = cmsData.data.match(/(?<=data-product-id=").+?(?=\")/g) &&
+      (cmsData.data.match(/(?<=data-product-id=").+?(?=\")/g)).toString();
+    const ctaProductType: string = cmsData.data.match(/(?<=data-product-type=").+?(?=\")/g) &&
+      (cmsData.data.match(/(?<=data-product-type=").+?(?=\")/g)).toString();
+    const ctaProductInfo = {ctaProductId, ctaProductType};
     const uniqueFieldMatches: Array<string> = fieldMatches.filter(this.onlyUnique);
     const uniqueCtaMatches: Array<string> = ctaMatches.map(ctaName => ctaName.replace(/-/g, ' ')).filter(this.onlyUnique);
 
@@ -144,6 +156,7 @@ export class OfferService {
       const ctaFormControlMeta = {} as OfferCtaFormControlMeta;
       ctaFormControlMeta.formControlName = ctrlName.split('_')[0];
       ctaFormControlMeta.formControlType = 'STR';
+      // ctaFormControlMeta.productId =
       ctaFormControlMetaArray.push(ctaFormControlMeta);
     });
 
@@ -223,7 +236,7 @@ export class OfferService {
   }
 
   private getInterHtmlContent(offer: OfferDefinition): Observable<ConsolidatedOffer> {
-    return this.http.request('GET', offerContentPath[offer.id], { responseType: 'text' }).pipe(
+    return this.http.request('GET', offerContentPath[offer.id], {responseType: 'text'}).pipe(
       map((html) => {
 
         const offerContentHtml = this.convertTextToDom(html);
@@ -235,7 +248,7 @@ export class OfferService {
           styles.forEach((style) => template['prepend'](style));
         }
 
-        const cmsData: CmsData = { data: template.outerHTML };
+        const cmsData: CmsData = {data: template.outerHTML};
         return {
           cmsData,
           offerDefinition: offer,
