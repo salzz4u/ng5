@@ -31,7 +31,7 @@
         <app-ctas
           [ctaName]="'ctrl' + i"
           [ctaValue]="ctaForm.get(ctrl.formControlName).value ? ctaForm.get(ctrl.formControlName).value : {}"
-          [formControlName]="ctrl.formControlName" [id]="'ctaForm' + i"></app-ctas>
+          [formControlName]="ctrl.formControlName" [ctaProductInfo]="ctaProductInfo" [id]="'ctaForm' + i"></app-ctas>
       </div>
     </div>
    <p>Form valueeeeeeeeee {{ ctaForm.value | json }}</p>

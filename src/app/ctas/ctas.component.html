@@ -3,7 +3,7 @@
     <label [for]="ctaName + 'ctaLmeResponseCode'">Response Code</label>
     <select [name]="ctaName + 'ctaLmeResponseCode'" formControlName="ctaLmeResponseCode" id="ctaLmeResponseCode">
       <ng-container *ngFor="let responseCode of responseCodes">
-        <option [disabled]="disableDropdown" [value]="responseCode?.value">{{responseCode?.label}}</option>
+        <option [value]="responseCode?.value">{{responseCode?.label}}</option>
       </ng-container>
     </select>
   </div>
@@ -14,6 +14,10 @@
         <option [value]="cta?.value">{{cta?.label}}</option>
       </ng-container>
     </select>
+    <p *ngIf="formControlName ===  'apply now' && ctaType.value === 'sso' && !showSSOError" class="hint-text">Product
+      id: {{ctaProductInfo?.ctaProductId}} <br /> Product type: {{ctaProductInfo?.ctaProductType}}</p>
+    <p *ngIf="formControlName ===  'apply now' && ctaType.value === 'sso' && showSSOError" class="error-text">Invalid
+      SSO details in template</p>
   </div>
   <div class="form-control" *ngIf="!hideCtaUrl">
     <label [for]="ctaName + 'ctaUrl'">Url</label>
@@ -21,5 +25,5 @@
   </div>
 </div>
 
-<div>Form value: {{ctasForm.value | json}}</div>
+<!-- <div>Form value: {{ctasForm.value | json}}</div> -->
 <pre>{{ctasForm.valid}}</pre>
