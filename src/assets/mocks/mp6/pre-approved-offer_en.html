@@ -1,244 +1,249 @@
+<!--
+  Template instructions:
+  1.  all <a> tags should have href="javascript:void(0);", this is to ensure that its
+      accessible when injected into BDB Customer app
+  2.  use absolute url for image source, eg: "https://preview.bdb.qa4.bmoharris.com/lme/poc/assets/loan.svg"
+  3.  add here about CTAS and SSO
+  TBD:
+  Reserved names for unique customer data like customer name
+
+
+
+-->
+
+<!--  DO NOT EDIT Font styles  -->
+<style>
+  @font-face {
+    font-family: Heebo;
+    src: url(./assets/fonts/Heebo-Thin.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 100;
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: Heebo;
+    src: url(./assets/fonts/Heebo-Light.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: Heebo;
+    src: url(./assets/fonts/Heebo-Regular.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: Heebo;
+    src: url(./assets/fonts/Heebo-Medium.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: Heebo;
+    src: url(./assets/fonts/Heebo-Bold.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: Heebo;
+    src: url(./assets/fonts/Heebo-ExtraBold.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: Heebo;
+    src: url(./assets/fonts/Heebo-Black.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: capco-icon-fonts;
+    src: url(./assets/fonts/capco-icon-fonts.woff) format("woff");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap
+  }
+
+  body {
+    background-color: #f5f6f7;
+    font-family: Heebo, sans-serif;
+    color: #001928
+  }
+
+</style>
 <div class="site__wrapper">
-
-  <!--  DO NOT EDIT Font styles-->
+  <!--  DO NOT EDIT Template Styles  -->
   <style>
-    @font-face {
-      font-family: Heebo;
-      src: url(./assets/fonts/Heebo-Thin.woff2) format("woff2");
-      font-style: normal;
-      font-weight: 100;
-      font-display: swap
+    .button-group {
+      display: flex;
+      margin: 0.5rem 0 0;
     }
 
-    @font-face {
-      font-family: Heebo;
-      src: url(./assets/fonts/Heebo-Light.woff2) format("woff2");
-      font-style: normal;
-      font-weight: 300;
-      font-display: swap
+    a.button-offer,
+    span.button-offer {
+      border-radius: 32px;
+      min-width: 136px;
+      display: block;
+      padding: 16px 0;
+      border: 0;
+      font-family: "heebo";
+      letter-spacing: .3px;
+      line-height: 0.5;
+      font-size: 14px;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 10px;
     }
 
-    @font-face {
-      font-family: Heebo;
-      src: url(./assets/fonts/Heebo-Regular.woff2) format("woff2");
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap
+    a.button-offer:hover {
+      border-color: #1a4d78;
+      color: #1a4d78;
+      text-decoration: none;
     }
 
-    @font-face {
-      font-family: Heebo;
-      src: url(./assets/fonts/Heebo-Medium.woff2) format("woff2");
-      font-style: normal;
-      font-weight: 500;
-      font-display: swap
+    a.button-offer:focus,
+    a.button-offer:active {
+      border-color: #1a4d78;
+      color: #1a4d78;
+      text-decoration: none;
+      outline: 0;
     }
 
-    @font-face {
-      font-family: Heebo;
-      src: url(./assets/fonts/Heebo-Bold.woff2) format("woff2");
-      font-style: normal;
-      font-weight: 700;
-      font-display: swap
+    a.button-offer.disabled {
+      border-color: #99c9e6;
+      color: #99c9e6;
+      cursor: default;
     }
 
-    @font-face {
-      font-family: Heebo;
-      src: url(./assets/fonts/Heebo-ExtraBold.woff2) format("woff2");
-      font-style: normal;
-      font-weight: 800;
-      font-display: swap
+    a.button-offer.primary,
+    span.button-offer.primary {
+      background-color: #0075BE;
+      color: #ffffff;
     }
 
-    @font-face {
-      font-family: Heebo;
-      src: url(./assets/fonts/Heebo-Black.woff2) format("woff2");
-      font-style: normal;
-      font-weight: 900;
-      font-display: swap
+    a.button-offer.primary:hover {
+      border-color: #1a4d78;
+      background-color: #1a4d78;
+      color: #ffffff;
+      text-decoration: none;
     }
 
-    @font-face {
-      font-family: capco-icon-fonts;
-      src: url(./assets/fonts/capco-icon-fonts.woff) format("woff");
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap
+    a.button-offer.primary:focus,
+    a.button-offer.primary:active {
+      border-color: #1a4d78;
+      background-color: #1a4d78;
+      color: #ffffff;
+      text-decoration: none;
+      outline: 0;
     }
 
-    body {
-      background-color: #f5f6f7;
-      font-family: Heebo, sans-serif;
-      color: #001928
+    a.button-offer.primary.disabled {
+      border-color: #99c9e6;
+      background-color: #99c9e6;
+      color: #efefef;
     }
 
-  </style>
+    a.button-offer.secondary,
+    span.button-offer.secondary {
+      background-color: transparent;
+      color: #0070c1;
+    }
 
-  <div class="card">
+    a.button-offer.secondary:hover {
+      background-color: transparent;
+      color: #1a4d78;
+      text-decoration: underline;
+    }
 
-    <!--  DO NOT EDIT Button styles-->
-    <style>
+    a.button-offer.secondary:focus,
+    a.button-offer.secondary:active {
+      background-color: transparent;
+      color: #1a4d78;
+      text-decoration: none;
+      outline: 0;
+    }
+
+    a.button-offer.secondary.disabled {
+      background-color: transparent;
+      color: #efefef;
+    }
+
+
+    @media (max-width: 767px) {
       .button-group {
-        display: flex;
-        margin: 0.5rem 0 0;
+        flex-direction: column;
+        margin-right: 1.625rem;
       }
 
       a.button-offer,
       span.button-offer {
-        border-radius: 32px;
-        min-width: 136px;
-        display: block;
-        padding: 16px 0;
-        border: 0;
-        font-family: "heebo";
-        letter-spacing: .3px;
-        line-height: 0.5;
-        font-size: 14px;
-        text-align: center;
-        text-transform: uppercase;
-        text-decoration: none;
-        font-weight: 600;
-        margin-right: 10px;
+        margin: 0.5rem auto 0 !important;
+        padding: 0.8rem 0;
       }
 
-      a.button-offer:hover {
-        border-color: #1a4d78;
-        color: #1a4d78;
-        text-decoration: none;
-      }
+    }
 
-      a.button-offer:focus,
-      a.button-offer:active {
-        border-color: #1a4d78;
-        color: #1a4d78;
-        text-decoration: none;
-        outline: 0;
-      }
+    .site__wrapper {
+      display: flex;
+    }
 
-      a.button-offer.disabled {
-        border-color: #99c9e6;
-        color: #99c9e6;
-        cursor: default;
-      }
+    .card {
+      flex-basis: 572px;
+      padding: 10px 20px 16px 20px;
+      box-shadow: 3px 0 20px rgba(0, 0, 0, 0.2);
+      border-radius: 0 0 3px 3px;
+      border-top: 4px solid #0375bd;
+      position: relative;
+      display: flex;
+      background-color: #fff;
+    }
 
-      a.button-offer.primary,
-      span.button-offer.primary {
-        background-color: #0075BE;
-        color: #ffffff;
-      }
-
-      a.button-offer.primary:hover {
-        border-color: #1a4d78;
-        background-color: #1a4d78;
-        color: #ffffff;
-        text-decoration: none;
-      }
-
-      a.button-offer.primary:focus,
-      a.button-offer.primary:active {
-        border-color: #1a4d78;
-        background-color: #1a4d78;
-        color: #ffffff;
-        text-decoration: none;
-        outline: 0;
-      }
-
-      a.button-offer.primary.disabled {
-        border-color: #99c9e6;
-        background-color: #99c9e6;
-        color: #efefef;
-      }
-
-      a.button-offer.secondary,
-      span.button-offer.secondary {
-        background-color: transparent;
-        color: #0070c1;
-      }
-
-      a.button-offer.secondary:hover {
-        background-color: transparent;
-        color: #1a4d78;
-        text-decoration: underline;
-      }
-
-      a.button-offer.secondary:focus,
-      a.button-offer.secondary:active {
-        background-color: transparent;
-        color: #1a4d78;
-        text-decoration: none;
-        outline: 0;
-      }
-
-      a.button-offer.secondary.disabled {
-        background-color: transparent;
-        color: #efefef;
-      }
-
-
-      @media (max-width: 767px) {
-        .button-group {
-          flex-direction: column;
-          margin-right: 1.625rem;
-        }
-
-        a.button-offer,
-        span.button-offer {
-          margin: 0.5rem auto 0 !important;
-          padding: 0.8rem 0;
-        }
-
-      }
-
-    </style>
-
-    <!--  DO NOT EDIT Layout styles-->
-    <style>
-      .site__wrapper {
-        display: flex;
-      }
-
+    @media (max-width: 767px) {
       .card {
-        flex-basis: 572px;
-        padding: 10px 20px 16px 20px;
-        box-shadow: 3px 0 20px rgba(0, 0, 0, 0.2);
-        border-radius: 0 0 3px 3px;
-        border-top: 4px solid #0375bd;
-        position: relative;
-        display: flex;
-        background-color: #fff;
+        flex-basis: auto;
       }
+    }
 
-      @media (max-width: 767px) {
-        .card {
-          flex-basis: auto;
-        }
-      }
+    .card .heading {
+      font-size: 1.125rem;
+      line-height: 2rem;
+      letter-spacing: 0;
+      font-weight: 600;
+      margin: 0;
+    }
 
-      .card .heading {
-        font-size: 1.125rem;
-        line-height: 2rem;
-        letter-spacing: 0;
-        font-weight: 600;
-        margin: 0;
-      }
+    .card .content-wrapper {
+      padding: 0 1rem;
+    }
 
+    @media (max-width: 767px) {
       .card .content-wrapper {
-        padding: 0 1rem;
+        padding: 0 1rem 0 0.5rem;
       }
+    }
 
-      @media (max-width: 767px) {
-        .card .content-wrapper {
-          padding: 0 1rem 0 0.5rem;
-        }
-      }
+    .card .icon-wrapper {
+      margin-top: 3px;
+    }
 
-      .card .icon-wrapper {
-        margin-top: 3px;
-      }
-
-    </style>
-
-    <!-- Editable styles for offer-details block-->
+  </style>
+  <div class="card">
+    <!-- Editable styles for offer-details block  -->
     <style>
       .offer-description {
         font-size: 1.125rem;
@@ -256,9 +261,9 @@
       }
 
     </style>
-    
-    <div class="icon-wrapper">
-      <img class="icon" src="/assets/img/loan.svg" alt="icon-img">
+   <div aria-hidden="true" class="icon-wrapper">
+<!--     please use absolute url for image source, eg: "https://preview.bdb.qa4.bmoharris.com/lme/poc/assets/loan.svg"-->
+      <img alt="icon-img" class="icon" src="/assets/img/loan.svg">
     </div>
     <div class="content-wrapper">
       <h3 class="heading">You've been pre-approved for a Personal Line of Credit.</h3>
@@ -267,9 +272,9 @@
         your own pace.
       </p>
       <div class="button-group">
-        <a data-cta-name="accept-offer" href="javascript:void(0);" id="accept-offer" class="button-offer primary">Accept
+        <a class="button-offer primary" data-cta-name="accept-offer" href="javascript:void(0);" id="accept-offer">Accept
           offer</a>
-        <a data-cta-name="learn-more" href="javascript:void(0);" id="learn-more" class="button-offer secondary">Learn
+        <a class="button-offer secondary" data-cta-name="learn-more" href="javascript:void(0);" id="learn-more">Learn
           More</a>
       </div>
     </div>

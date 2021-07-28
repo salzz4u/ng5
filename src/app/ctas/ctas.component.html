@@ -11,7 +11,7 @@
     <label [for]="ctaName + 'ctaType'">Type</label>
     <select [name]="ctaName + 'ctaType'" formControlName="ctaType" id="ctaType">
       <ng-container *ngFor="let cta of ctaTypes">
-        <option [value]="cta?.value">{{cta?.label}}</option>
+        <option [disabled]="ctaType.value === 'sso' && cta.value !== 'sso'" [value]="cta?.value">{{cta?.label | uppercase}}</option>
       </ng-container>
     </select>
     <p *ngIf="ctaProductId && ctaProductType && ctaType.value === 'sso' && !showSSOError" class="hint-text">Product
