@@ -1,7 +1,6 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {
   CmsData,
-  CtaProductInfo,
   objDiffKey,
   OfferCtaFormControlMeta,
   OfferDefinition,
@@ -25,7 +24,6 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
   selectOfferForm = new FormGroup({});
   offerFormControlMetaArray: Array<OfferFormControlMeta>;
   offerCtaFormControlMetaArray: Array<OfferCtaFormControlMeta>;
-  ctaProductInfo: CtaProductInfo;
   displayForm = false;
   previewOn = false;
   previousFormValue: any;
@@ -61,7 +59,6 @@ export class OfferAdminComponent implements OnInit, AfterViewInit, OnDestroy {
             this.cmsData = offerAdminData.cmsData;
             this.offerFormControlMetaArray = offerAdminData.offerFormControlMetaArray;
             this.offerCtaFormControlMetaArray = offerAdminData.offerCtaFormControlMetaArray;
-            this.ctaProductInfo = offerAdminData.ctaProductInfo;
             // get setup form controls
             this.generateFieldForm();
             this.generateCtaForm();

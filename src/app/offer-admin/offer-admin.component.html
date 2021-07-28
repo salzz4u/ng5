@@ -12,7 +12,7 @@
     </select>
   </div>
   <button *ngIf="!previewOn" (click)="mobilePreview = !mobilePreview"
-          type="button">{{ mobilePreview ? 'Web preview' : 'Mobile Preview' }}</button>
+    type="button">{{ mobilePreview ? 'Web preview' : 'Mobile Preview' }}</button>
 </div>
 
 
@@ -22,34 +22,26 @@
     <div [formGroup]="offerForm">
       <div *ngFor="let ctrl of offerFormControlMetaArray; let i = index" class="formCtrlRow">
         <label [for]="'offerForm' + i">{{ ctrl.formControlName }}</label>
-        <input [formControlName]="ctrl.formControlName" [id]="'offerForm' + i" type="text"/>
+        <input [formControlName]="ctrl.formControlName" [id]="'offerForm' + i" type="text" />
       </div>
     </div>
     <p>Ctas</p>
     <div [formGroup]="ctaForm" [ngClass]="{cols: !mobilePreview}">
       <div *ngFor="let ctrl of offerCtaFormControlMetaArray; let i = index" class="formCtrlRow">
         <label [for]="'ctaForm' + i">{{ ctrl.formControlName }}</label>
-        <app-ctas
-          [ctaName]="'ctrl' + i"
+        <app-ctas [ctaName]="'ctrl' + i"
           [ctaValue]="ctaForm.get(ctrl.formControlName).value ? ctaForm.get(ctrl.formControlName).value : {}"
-          [formControlName]="ctrl.formControlName" [ctaProductInfo]="ctaProductInfo" [id]="'ctaForm' + i"></app-ctas>
+          [formControlName]="ctrl.formControlName" [ctaProductId]="ctrl?.productId" [ctaProductType]="ctrl?.productType"
+          [id]="'ctaForm' + i"></app-ctas>
       </div>
     </div>
     <p>Form valueeeeeeeeee {{ ctaForm.value | json }}</p>
   </div>
   <div [ngClass]="{ 'full-width': previewOn }">
-    <app-offer
-      *ngIf="!mobilePreview"
-      [offerContent]="cmsData.data"
-      [offerDefinition]="offerAdminDefinition"
-      [updatedFieldName]="updatedFieldName"
-    ></app-offer>
-    <app-mobile-preview
-      *ngIf="mobilePreview"
-      [offerContent]="cmsData.data"
-      [offerDefinition]="offerAdminDefinition"
-      [updatedFieldName]="updatedFieldName"
-    >
+    <app-offer *ngIf="!mobilePreview" [offerContent]="cmsData.data" [offerDefinition]="offerAdminDefinition"
+      [updatedFieldName]="updatedFieldName"></app-offer>
+    <app-mobile-preview *ngIf="mobilePreview" [offerContent]="cmsData.data" [offerDefinition]="offerAdminDefinition"
+      [updatedFieldName]="updatedFieldName">
     </app-mobile-preview>
   </div>
 </div>
