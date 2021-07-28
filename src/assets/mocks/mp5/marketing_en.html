@@ -1,293 +1,287 @@
+<!--  DO NOT EDIT Font styles-->
+<style>
+  @font-face {
+    font-family: Heebo;
+    src: url(./assets/fonts/Heebo-Thin.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 100;
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: Heebo;
+    src: url(./assets/fonts/Heebo-Light.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: Heebo;
+    src: url(./assets/fonts/Heebo-Regular.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: Heebo;
+    src: url(./assets/fonts/Heebo-Medium.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: Heebo;
+    src: url(./assets/fonts/Heebo-Bold.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: Heebo;
+    src: url(./assets/fonts/Heebo-ExtraBold.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: Heebo;
+    src: url(./assets/fonts/Heebo-Black.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: capco-icon-fonts;
+    src: url(./assets/fonts/capco-icon-fonts.woff) format("woff");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap
+  }
+
+  body {
+    background-color: #f5f6f7;
+    font-family: Heebo, sans-serif;
+    color: #001928
+  }
+
+</style>
 <div class="site__wrapper">
-  <!--  DO NOT EDIT Font styles-->
+  <!--  DO NOT EDIT Button styles-->
   <style>
-    @font-face {
-      font-family: Heebo;
-      src: url(./assets/fonts/Heebo-Thin.woff2) format("woff2");
-      font-style: normal;
-      font-weight: 100;
-      font-display: swap
+    .button-group {
+      margin: 20px 0;
+      display: flex;
     }
 
-    @font-face {
-      font-family: Heebo;
-      src: url(./assets/fonts/Heebo-Light.woff2) format("woff2");
-      font-style: normal;
-      font-weight: 300;
-      font-display: swap
-    }
-
-    @font-face {
-      font-family: Heebo;
-      src: url(./assets/fonts/Heebo-Regular.woff2) format("woff2");
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap
-    }
-
-    @font-face {
-      font-family: Heebo;
-      src: url(./assets/fonts/Heebo-Medium.woff2) format("woff2");
-      font-style: normal;
-      font-weight: 500;
-      font-display: swap
-    }
-
-    @font-face {
-      font-family: Heebo;
-      src: url(./assets/fonts/Heebo-Bold.woff2) format("woff2");
-      font-style: normal;
-      font-weight: 700;
-      font-display: swap
-    }
-
-    @font-face {
-      font-family: Heebo;
-      src: url(./assets/fonts/Heebo-ExtraBold.woff2) format("woff2");
-      font-style: normal;
-      font-weight: 800;
-      font-display: swap
-    }
-
-    @font-face {
-      font-family: Heebo;
-      src: url(./assets/fonts/Heebo-Black.woff2) format("woff2");
-      font-style: normal;
-      font-weight: 900;
-      font-display: swap
-    }
-
-    @font-face {
-      font-family: capco-icon-fonts;
-      src: url(./assets/fonts/capco-icon-fonts.woff) format("woff");
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap
-    }
-
-    body {
-      background-color: #f5f6f7;
+    a.button-offer,
+    span.button-offer {
+      border-radius: 32px;
+      min-width: 160px;
+      display: block;
+      padding: 16px;
+      border: 0;
       font-family: Heebo, sans-serif;
-      color: #001928
+      letter-spacing: .3px;
+      line-height: 1.7;
+      font-size: 14px;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 10px;
     }
 
-  </style>
+    a.button-offer:hover {
+      border-color: #1a4d78;
+      color: #1a4d78;
+      text-decoration: none;
+    }
 
-  <div class="site__container">
-    <!--  DO NOT EDIT Button styles-->
-    <style>
+    a.button-offer:focus,
+    a.button-offer:active {
+      border-color: #1a4d78;
+      color: #1a4d78;
+      text-decoration: none;
+      outline: 0;
+    }
+
+    a.button-offer.disabled {
+      border-color: #99c9e6;
+      color: #99c9e6;
+      cursor: default;
+    }
+
+    a.button-offer.primary,
+    span.button-offer.primary {
+      background-color: #0075BE;
+      color: #ffffff;
+    }
+
+    a.button-offer.primary:hover {
+      border-color: #1a4d78;
+      background-color: #1a4d78;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    a.button-offer.primary:focus,
+    a.button-offer.primary:active {
+      border-color: #1a4d78;
+      background-color: #1a4d78;
+      color: #ffffff;
+      text-decoration: none;
+      outline: 0;
+    }
+
+    a.button-offer.primary.disabled {
+      border-color: #99c9e6;
+      background-color: #99c9e6;
+      color: #efefef;
+    }
+
+    a.button-offer.secondary,
+    span.button-offer.secondary {
+      background-color: transparent;
+      color: #0070c1;
+    }
+
+    a.button-offer.secondary:hover {
+      background-color: transparent;
+      color: #1a4d78;
+      text-decoration: underline;
+    }
+
+    a.button-offer.secondary:focus,
+    a.button-offer.secondary:active {
+      background-color: transparent;
+      color: #1a4d78;
+      text-decoration: none;
+      outline: 0;
+    }
+
+    a.button-offer.secondary.disabled {
+      background-color: transparent;
+      color: #efefef;
+    }
+
+
+    @media (max-width: 767px) {
       .button-group {
-        margin: 20px 0;
-        display: flex;
+        flex-direction: column;
+        margin: 1rem 0 0;
       }
 
       a.button-offer,
       span.button-offer {
-        border-radius: 32px;
-        min-width: 160px;
-        display: block;
-        padding: 16px;
-        border: 0;
-        font-family: Heebo, sans-serif;
-        letter-spacing: .3px;
-        line-height: 1.7;
-        font-size: 14px;
-        text-align: center;
-        text-transform: uppercase;
-        text-decoration: none;
-        font-weight: 600;
-        margin-right: 10px;
+        margin: 0.5rem auto 0 !important;
+        min-width: 140px;
       }
 
-      a.button-offer:hover {
-        border-color: #1a4d78;
-        color: #1a4d78;
-        text-decoration: none;
-      }
+    }
 
-      a.button-offer:focus,
-      a.button-offer:active {
-        border-color: #1a4d78;
-        color: #1a4d78;
-        text-decoration: none;
-        outline: 0;
-      }
+    .site-content-block,
+    .site__wrapper,
+    .site__container {
+      display: flex;
+    }
 
-      a.button-offer.disabled {
-        border-color: #99c9e6;
-        color: #99c9e6;
-        cursor: default;
-      }
+    .site__container {
+      flex-basis: 1026px;
+      margin: auto;
+      flex-direction: column;
+    }
 
-      a.button-offer.primary,
-      span.button-offer.primary {
-        background-color: #0075BE;
-        color: #ffffff;
-      }
-
-      a.button-offer.primary:hover {
-        border-color: #1a4d78;
-        background-color: #1a4d78;
-        color: #ffffff;
-        text-decoration: none;
-      }
-
-      a.button-offer.primary:focus,
-      a.button-offer.primary:active {
-        border-color: #1a4d78;
-        background-color: #1a4d78;
-        color: #ffffff;
-        text-decoration: none;
-        outline: 0;
-      }
-
-      a.button-offer.primary.disabled {
-        border-color: #99c9e6;
-        background-color: #99c9e6;
-        color: #efefef;
-      }
-
-      a.button-offer.secondary,
-      span.button-offer.secondary {
-        background-color: transparent;
-        color: #0070c1;
-      }
-
-      a.button-offer.secondary:hover {
-        background-color: transparent;
-        color: #1a4d78;
-        text-decoration: underline;
-      }
-
-      a.button-offer.secondary:focus,
-      a.button-offer.secondary:active {
-        background-color: transparent;
-        color: #1a4d78;
-        text-decoration: none;
-        outline: 0;
-      }
-
-      a.button-offer.secondary.disabled {
-        background-color: transparent;
-        color: #efefef;
-      }
-
-
-      @media (max-width: 767px) {
-        .button-group {
-          flex-direction: column;
-          margin: 1rem 0 0;
-        }
-
-        a.button-offer,
-        span.button-offer {
-          margin: 0.5rem auto 0 !important;
-          min-width: 140px;
-        }
-
-      }
-
-    </style>
-
-    <!--  DO NOT EDIT Layout styles-->
-    <style>
-      .site-content-block,
-      .site__wrapper,
+    @media (max-width: 767px) {
       .site__container {
-        display: flex;
+        flex-basis: auto;
+        margin: 0;
       }
+    }
 
-      .site__container {
-        flex-basis: 1026px;
-        margin: auto;
-        flex-direction: column;
-      }
+    .site__container .site__banner,
+    .site__container .site-content-block {
+      flex-grow: 1;
+      flex-basis: 0;
+    }
 
-      @media (max-width: 767px) {
-        .site__container {
-          flex-basis: auto;
-          margin: 0;
-        }
-      }
+    .site__container .site__banner {
+      background-color: #dcdcdc;
+      max-height: 292px;
+      min-height: 292px;
+    }
 
-      .site__container .site__banner,
-      .site__container .site-content-block {
-        flex-grow: 1;
-        flex-basis: 0;
-      }
-
+    @media (max-width: 767px) {
       .site__container .site__banner {
-        background-color: #dcdcdc;
-        max-height: 292px;
-        min-height: 292px;
+        max-height: 200px;
+        min-height: 200px;
       }
+    }
 
-      @media (max-width: 767px) {
-        .site__container .site__banner {
-          max-height: 200px;
-          min-height: 200px;
-        }
+    .site__container .site__banner img {
+      width: 100%;
+      /* height: 100%; */
+    }
+
+    @media (max-width: 767px) {
+      .site__container .site__banner .web {
+        display: none;
       }
+    }
 
-      .site__container .site__banner img {
-        width: 100%;
-        /* height: 100%; */
+    @media (min-width: 767px) {
+      .site__container .site__banner .mobile {
+        display: none;
       }
+    }
 
-      @media (max-width: 767px) {
-        .site__container .site__banner .web {
-          display: none;
-        }
-      }
+    .site__container .site-content-block {
+      background-color: #fff;
+    }
 
-      @media (min-width: 767px) {
-        .site__container .site__banner .mobile {
-          display: none;
-        }
-      }
+    .site__container .site-content-block .site-content-spacing {
+      margin: 0 6rem 2.8rem 5rem;
+      display: flex;
+      flex-direction: column;
+    }
 
-      .site__container .site-content-block {
-        background-color: #fff;
-      }
-
+    @media (max-width: 767px) {
       .site__container .site-content-block .site-content-spacing {
-        margin: 0 6rem 2.8rem 5rem;
-        display: flex;
-        flex-direction: column;
+        margin: 0 1rem 4rem;
       }
+    }
 
-      @media (max-width: 767px) {
-        .site__container .site-content-block .site-content-spacing {
-          margin: 0 1rem 4rem;
-        }
-      }
+    .site__container .site-content-block .site-content-spacing .heading {
+      font-size: 1.75rem;
+      line-height: 2rem;
+      letter-spacing: -0.0125rem;
+      font-weight: 300;
+      margin-bottom: 0;
+      margin-top: 1.5rem;
+    }
 
-      .site__container .site-content-block .site-content-spacing .heading {
-        font-size: 1.75rem;
-        line-height: 2rem;
-        letter-spacing: -0.0125rem;
-        font-weight: 300;
-        margin-bottom: 0;
-        margin-top: 1.5rem;
-      }
+    .site__container .site-content-block .site-content-spacing .offer-help-text {
+      font-size: 0.875rem;
+      font-weight: 400;
+      margin-top: 2.15rem;
+    }
 
+    @media (max-width: 767px) {
       .site__container .site-content-block .site-content-spacing .offer-help-text {
+        margin-block-start: 0px;
+        padding-right: 4px;
         font-size: 0.875rem;
-        font-weight: 400;
-        margin-top: 2.15rem;
+        margin-top: 1.625rem;
       }
+    }
 
-      @media (max-width: 767px) {
-        .site__container .site-content-block .site-content-spacing .offer-help-text {
-          margin-block-start: 0px;
-          padding-right: 4px;
-          font-size: 0.875rem;
-          margin-top: 1.625rem;
-        }
-      }
-
-    </style>
-
+  </style>
+  <div class="site__container">
     <!-- Editable styles for offer-details block-->
     <style>
       .offer-details {
@@ -304,10 +298,9 @@
       }
 
     </style>
-    
     <section class="site__banner">
-      <img class="mobile" src="/assets/img/marketing-mobile.jpeg" alt="banner-img">
-      <img class="web" src="/assets/img/marketing-web.jpeg" alt="banner-img">
+      <img alt="banner-img" class="mobile" src="/assets/img/marketing-mobile.jpeg">
+      <img alt="banner-img" class="web" src="/assets/img/marketing-web.jpeg">
     </section>
     <section class="site-content-block">
       <div class="site-content-spacing">
@@ -316,17 +309,17 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae metus leo. Cras faucibus, odio vel
           auctor facilisis, elit purus ullamcorper felis, volutpat malesuada massa nulla id nisl. Suspendisse a eu
           lacinia velit.
-          <br />
-          <br />
+          <br/>
+          <br/>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae metus leo. Cras faucibus, odio vel
           auctor facilisis, elit purus ullamcorper felis, volutpat malesuada massa nulla id nisl. Suspendisse a eu
           lacinia velit.
         </p>
         <div class="button-group">
-          <a data-cta-name="get-started" href="javascript:void(0);" id="get-started" class="button-offer primary">Get
+          <a class="button-offer primary" data-cta-name="get-started" href="javascript:void(0);" id="get-started">Get
             started</a>
-          <a data-cta-name="remind-me-later" href="javascript:void(0);" id="remind-me-later"
-            class="button-offer secondary">Remind
+          <a class="button-offer secondary" data-cta-name="remind-me-later" href="javascript:void(0);"
+             id="remind-me-later">Remind
             me later</a>
         </div>
         <p class="offer-help-text">
