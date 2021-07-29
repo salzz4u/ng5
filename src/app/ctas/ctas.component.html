@@ -3,7 +3,7 @@
     <label [for]="ctaName + 'ctaLmeResponseCode'">Response Code</label>
     <select [name]="ctaName + 'ctaLmeResponseCode'" formControlName="ctaLmeResponseCode" id="ctaLmeResponseCode">
       <ng-container *ngFor="let responseCode of responseCodes">
-        <option [value]="responseCode?.value">{{responseCode?.label}}</option>
+        <option [value]="responseCode?.value">{{responseCode?.label | uppercase}}</option>
       </ng-container>
     </select>
   </div>
@@ -11,7 +11,7 @@
     <label [for]="ctaName + 'ctaType'">Type</label>
     <select [name]="ctaName + 'ctaType'" formControlName="ctaType" id="ctaType">
       <ng-container *ngFor="let cta of ctaTypes">
-        <option [disabled]="ctaType.value === 'sso' && cta.value !== 'sso'" [value]="cta?.value">{{cta?.label | uppercase}}</option>
+        <option [value]="cta?.value">{{cta?.label | uppercase}}</option>
       </ng-container>
     </select>
     <p *ngIf="ctaProductId && ctaProductType && ctaType.value === 'sso' && !showSSOError" class="hint-text">Product

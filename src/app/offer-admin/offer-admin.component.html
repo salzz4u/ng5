@@ -28,14 +28,14 @@
     <p>Ctas</p>
     <div [formGroup]="ctaForm" [ngClass]="{cols: !mobilePreview}">
       <div *ngFor="let ctrl of offerCtaFormControlMetaArray; let i = index" class="formCtrlRow">
-        <label [for]="'ctaForm' + i">{{ ctrl.formControlName }}</label>
+        <label [for]="'ctaForm' + i">{{ ctrl?.displayName }}</label>
         <app-ctas [ctaName]="'ctrl' + i"
           [ctaValue]="ctaForm.get(ctrl.formControlName).value ? ctaForm.get(ctrl.formControlName).value : {}"
           [formControlName]="ctrl.formControlName" [ctaProductId]="ctrl?.productId" [ctaProductType]="ctrl?.productType"
           [id]="'ctaForm' + i"></app-ctas>
       </div>
     </div>
-    <p>Form valueeeeeeeeee {{ ctaForm.value | json }}</p>
+    <!-- <p>Form value {{ ctaForm.value | json }}</p> -->
   </div>
   <div [ngClass]="{ 'full-width': previewOn }">
     <app-offer *ngIf="!mobilePreview" [offerContent]="cmsData.data" [offerDefinition]="offerAdminDefinition"

@@ -51,6 +51,7 @@ export interface OfferCtaFormControlMeta {
   formControlType: string;
   productId: string;
   productType: string;
+  displayName: string;
 }
 
 export enum offerContentPath {
@@ -89,7 +90,6 @@ export const objDiffKey = (o1, o2) => {
 @Injectable()
 export class OfferService {
   offerCtas: NodeListOf<HTMLAnchorElement>;
-  ctaProductInfo : Array<CtaProductInfo> = [];   
 
   constructor(
     private http: HttpClient,
@@ -109,17 +109,6 @@ export class OfferService {
         const scripts = Array.from(offerContentHtml.querySelectorAll('script[data-name="bdb"]'));
         const styles = Array.from(offerContentHtml.querySelectorAll('style[data-name="bdb"]'));
         this.offerCtas = offerContentHtml.querySelectorAll('a');
-        Array.from(this.offerCtas).map(cta => {
-          console.log(cta.hasAttribute('data-product-id'), cta.attributes, cta.hasAttribute('data-product-type'));
-          if (cta.hasAttribute('data-product-id') || cta.hasAttribute('data-product-type')) {
-            const ctaProductInfo: CtaProductInfo = {
-              "ctaProductId": cta.attributes.getNamedItem("data-product-id") && cta.attributes.getNamedItem("data-product-id").value,
-              "ctaProductType": cta.attributes.getNamedItem("data-product-type") && cta.attributes.getNamedItem("data-product-type").value,
-              "ctaName": (cta.attributes.getNamedItem("data-cta-name").value).replace(/-/g, ' ')
-            }
-            this.ctaProductInfo.push(ctaProductInfo);
-          }
-        });
         if (scripts.length > 0) {
           scripts.forEach((script) => template.prepend(script));
         }
@@ -145,9 +134,7 @@ export class OfferService {
     const offerFormControlMetaArray: Array<OfferFormControlMeta> = [];
     const ctaFormControlMetaArray: Array<OfferCtaFormControlMeta> = [];
     const fieldMatches: Array<string> = cmsData.data.match(/(?<=\[\[).+?(?=\]\])/g);
-    const ctaMatches: Array<string> = cmsData.data.match(/(?<=data-cta-name=").+?(?=\")/g);
     const uniqueFieldMatches: Array<string> = fieldMatches.filter(this.onlyUnique);
-    const uniqueCtaMatches: Array<string> = ctaMatches.map(ctaName => ctaName.replace(/-/g, ' ')).filter(this.onlyUnique);
 
     uniqueFieldMatches.map((ctrlName) => {
       const offerFormControlMeta = {} as OfferFormControlMeta;
@@ -156,22 +143,24 @@ export class OfferService {
       offerFormControlMetaArray.push(offerFormControlMeta);
     });
 
-    uniqueCtaMatches.map(ctrlName => {
+    Array.from(this.offerCtas).map(cta => {
+      if(cta.attributes.getNamedItem("data-cta-name") && cta.attributes.getNamedItem("data-cta-name").value){
       const ctaFormControlMeta = {} as OfferCtaFormControlMeta;
-      ctaFormControlMeta.formControlName = ctrlName.split('_')[0];
+      ctaFormControlMeta.formControlName = cta.attributes.getNamedItem("data-cta-name") && (cta.attributes.getNamedItem("data-cta-name").value).replace(/-/g, ' ');
       ctaFormControlMeta.formControlType = 'STR';
-      this.ctaProductInfo.forEach((selectedCta: CtaProductInfo) => {
-        if (ctrlName === selectedCta.ctaName) {
-          ctaFormControlMeta.productId= selectedCta.ctaProductId;
-          ctaFormControlMeta.productType = selectedCta.ctaProductType;
-        }
-      })
+      ctaFormControlMeta.displayName = (cta.text).replace(/\s+/g, ' ').trim();
+      if (cta.hasAttribute('data-product-id') || cta.hasAttribute('data-product-type')) {
+        ctaFormControlMeta.productId = cta.attributes.getNamedItem("data-product-id") && cta.attributes.getNamedItem("data-product-id").value;
+        ctaFormControlMeta.productType = cta.attributes.getNamedItem("data-product-type") && cta.attributes.getNamedItem("data-product-type").value;
+      }
       ctaFormControlMetaArray.push(ctaFormControlMeta);
+    }
     });
 
     offerAdminData.offerFormControlMetaArray = offerFormControlMetaArray;
     offerAdminData.offerCtaFormControlMetaArray = ctaFormControlMetaArray;
     return of(offerAdminData);
+    
   }
 
   public offerParser(offerHtml, offerDefinition, updatedFieldName?): string {

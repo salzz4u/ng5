@@ -77,6 +77,7 @@ export class CtasComponent implements OnInit, AfterViewInit, ControlValueAccesso
     // Setting the cta type to "SSO" if data-product-id and data-product-type is present and not empty
     if (this.ctaProductId && this.ctaProductType) {
       this.ctaType.setValue(CtaType.SSO);
+      this.ctaType.disable();
     }
 
     // Setting the cta type to "SSO" and showing an error if either of data-product-id and data-product-type is not present
@@ -85,6 +86,7 @@ export class CtasComponent implements OnInit, AfterViewInit, ControlValueAccesso
       this.ctaProductType === '' || this.ctaProductId === '') {
       this.ctaType.setValue(CtaType.SSO);
       this.showSSOError = true;
+      this.ctaType.disable();
     }
   }
 
@@ -113,13 +115,24 @@ export class CtasComponent implements OnInit, AfterViewInit, ControlValueAccesso
         this.hideCtaUrl = true;
         const ctaValue = {'ctaLmeResponseCode': value.ctaLmeResponseCode, 'ctaType': '', 'ctaUrl': ''};
         this.onChange(this.ctasForm.valid ? ctaValue : null);
-      } else {
+      } else if(this.ctaProductId && this.ctaProductType || this.showSSOError){
+        this.hideCtaType = false;
+        this.hideCtaUrl = false;
+        if(this.showSSOError || (!this.ctaLmeResponseCode.value || !this.ctaUrl.value)){
+          this.ctasForm.setErrors({'invalid': true});
+        }
+        if(!this.ctaLmeResponseCode.value || !this.ctaUrl.value){
+          setTimeout(() => this.ctasForm.setErrors({'invalid': true}));
+        }
+        const ctaValue= {'ctaLmeResponseCode': value.ctaLmeResponseCode, 'ctaType': CtaType.SSO, 'ctaUrl': value.ctaUrl};
+        this.onChange(this.ctasForm.valid ? ctaValue : null);
+      }else {
         this.hideCtaType = false;
         this.hideCtaUrl = false;
         if (!this.ctaType.value || !this.ctaUrl.value || !this.ctaLmeResponseCode.value) {
           setTimeout(() => this.ctasForm.setErrors({'invalid': true}));
         }
-        this.onChange(this.ctasForm.valid ? value : null);
+        setTimeout(() => this.onChange(this.ctasForm.valid ? value : null)); 
       }
 
     });

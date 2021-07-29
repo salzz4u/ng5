@@ -66,8 +66,6 @@
 
   body {
     background-color: #f5f6f7;
-    font-family: Heebo, sans-serif;
-    color: #001928
   }
 
 </style>
@@ -188,6 +186,8 @@
     .site__wrapper,
     .site__container {
       display: flex;
+      font-family: Heebo, sans-serif;
+      color: #001928;
     }
 
     .site__container {
@@ -212,12 +212,14 @@
 
     .site__container .site__banner {
       max-height: 600px;
+      min-width: 511px;
       background-color: #dcdcdc;
     }
 
     @media (max-width: 767px) {
       .site__container .site__banner {
         max-height: 200px;
+        min-width: auto;
       }
     }
 
@@ -320,7 +322,6 @@
   <div class="site__container">
     <!-- Editable styles for offer-details block  -->
     <style>
-
       .offer-details {
         font-size: 1.25rem;
         font-weight: 300;
@@ -336,8 +337,8 @@
 
     </style>
     <section class="site__banner">
-      <img alt="banner-img" class="mobile" src="/assets/img/sample-mobile.jpeg">
-      <img alt="banner-img" class="web" src="/assets/img/sample-web.jpeg">
+      <img alt="banner-img" class="mobile" src="https://www.bmo.com/dist/images/personal/homepage-banners/family-computer-mobile.jpg">
+      <img alt="banner-img" class="web" src="https://www.bmo.com/dist/images/personal/homepage-banners/family-computer-desktop.jpg">
     </section>
     <section class="site-content-block">
       <div class="site-content-spacing">
@@ -352,27 +353,22 @@
         </div>
         <div>
           <div class="button-group">
-            <a class="button-offer primary" data-cta-name="Marketing" href="javascript:void(0);"
-               id="accept">Accept</a>
-            <a class="button-offer secondary" data-cta-name="apply-now"
-               data-product-id="ASDAD3344"
-               data-product-type="CHECKING"
-               href="javascript:void(0);"
-               id="apply-now">Remind
-              me later</a>
+            <a class="button-offer primary" data-cta-name="Marketing" href="javascript:void(0);" id="accept">Accept</a>
+            <a class="button-offer secondary" data-cta-name="apply-now" data-product-id="ASDAD3344"
+              data-product-type="CHECKING" href="javascript:void(0);" id="apply-now">Apply now</a>
             <!--
             for an SSO CTA: data-product-id and data-product-type should be present and not empty,
             if either of these two are missing or empty, BDB Admin will  show
             inline error saying "invalid SSO details in template"
             -->
             <a class="button-offer secondary" data-cta-name="remind-me-later" href="javascript:void(0);"
-               id="remind-me-later">Remind
+              id="remind-me-later">Remind
               me later</a>
           </div>
           <p></p>
         </div>
         <p class="offer-help-text">
-          This offer can also be accessed by viewing <a href="https://www.bmo.com">"Your Offers"</a> page in the main
+          This offer can also be accessed by viewing <a href="https://www.bmo.com"  target="_blank" rel="noopener noreferrer">"Your Offers"</a> page in the main
           menu till May 01, 2021.
         </p>
       </div>
