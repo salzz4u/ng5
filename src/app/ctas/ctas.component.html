@@ -7,7 +7,7 @@
       </ng-container>
     </select>
   </div>
-  <div class="form-control" *ngIf="!hideCtaType">
+  <div class="form-control">
     <label [for]="ctaName + 'ctaType'">Type</label>
     <select [name]="ctaName + 'ctaType'" formControlName="ctaType" id="ctaType">
       <ng-container *ngFor="let cta of ctaTypes">
