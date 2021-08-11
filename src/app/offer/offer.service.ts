@@ -138,8 +138,8 @@ export class OfferService {
 
     uniqueFieldMatches.map((ctrlName) => {
       const offerFormControlMeta = {} as OfferFormControlMeta;
-      offerFormControlMeta.formControlName = ctrlName.split('_')[0];
-      offerFormControlMeta.formControlType = ctrlName.split('_')[1] ? ctrlName.split('_')[1] : 'STR';
+      offerFormControlMeta.formControlName = ctrlName.split(':')[0];
+      offerFormControlMeta.formControlType = ctrlName.split(':')[1] ? ctrlName.split(':')[1] : 'STR';
       offerFormControlMetaArray.push(offerFormControlMeta);
     });
 
@@ -170,7 +170,7 @@ export class OfferService {
     }
     const fieldMatches: Array<string> = offerHtml.match(/(?<=\[\[).+?(?=\]\])/g);
     fieldMatches.map((toReplace) => {
-      const paramDef = toReplace.split('_');
+      const paramDef = toReplace.split(':');
       const paramTag = `[${paramDef[0]}]`;
       const paramName = paramTag.split(/[\[\]]+/)[1];
       // default to string type if type is undefined
